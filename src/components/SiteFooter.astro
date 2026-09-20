@@ -1,0 +1,101 @@
+---
+import { site, whatsappUrl } from '../data/site';
+const year = new Date().getFullYear();
+const { whatsapp, email, instagram } = site.contact;
+---
+
+<footer class="footer on-dark">
+  <div class="container footer__grid">
+    <div class="footer__about">
+      <p class="footer__name">{site.fullName}</p>
+      <p class="muted">{site.role} · {site.crp}</p>
+      <p class="footer__tag muted">{site.tagline}</p>
+    </div>
+
+    <nav class="footer__contact" aria-label="Contatos">
+      <p class="eyebrow">Contato</p>
+      <ul>
+        <li>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            WhatsApp <span class="muted">{whatsapp.display}</span>
+            <span class="visually-hidden"> (abre em nova aba)</span>
+          </a>
+        </li>
+        <li><a href={`mailto:${email}`}>{email}</a></li>
+        <li>
+          <a href={instagram.url} target="_blank" rel="noopener noreferrer">
+            Instagram <span class="muted">{instagram.handle}</span>
+            <span class="visually-hidden"> (abre em nova aba)</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container footer__legal">
+    <p>© {year} {site.fullName}. Todos os direitos reservados.</p>
+    <p>
+      Este site é informativo e não é um canal de atendimento de emergência. Em situação de crise, procure o CVV
+      (188) ou o SAMU (192).
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary-strong);
+    padding-block: var(--space-16) var(--space-8);
+  }
+  .footer__grid {
+    display: grid;
+    gap: var(--space-10);
+    padding-bottom: var(--space-12);
+  }
+  .footer__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: 1.2;
+  }
+  .footer__tag {
+    margin-top: var(--space-4);
+    max-width: 28ch;
+  }
+  .footer__contact ul {
+    display: grid;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+  }
+  .footer__contact a {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+    min-height: var(--touch-min);
+    text-underline-offset: 0.3em;
+  }
+  .footer__contact a:hover {
+    text-decoration-thickness: 2px;
+  }
+  .footer__legal {
+    display: grid;
+    gap: var(--space-2);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border-on-primary);
+    font-size: var(--text-small);
+    color: var(--color-on-primary-muted);
+  }
+
+  @media (min-width: 48rem) {
+    .footer__grid {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+    .footer__legal {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-8);
+    }
+    .footer__legal p:last-child {
+      text-align: end;
+    }
+  }
+</style>

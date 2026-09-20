@@ -1,0 +1,69 @@
+---
+import InfoRow from '../InfoRow.astro';
+import Placeholder from '../Placeholder.astro';
+import SectionHeading from '../SectionHeading.astro';
+---
+
+<!--
+  RASCUNHO — conteúdo depende da Alice (ver docs/PENDING.md).
+  Só o WhatsApp como canal de primeiro contato está confirmado.
+  Oculta com `showDraftSections: false` em src/data/site.ts.
+-->
+<section class="section section--soft how" id="como-funciona" aria-labelledby="como-title">
+  <div class="container how__grid">
+    <div data-reveal>
+      <SectionHeading
+        eyebrow="Como funciona"
+        title="Um começo <em>sem pressa.</em>"
+        id="como-title"
+        lead="O primeiro passo é uma conversa. O restante do caminho se desenha a partir dela."
+      />
+    </div>
+
+    <div class="how__lists">
+      <ul aria-label="Etapas do acompanhamento">
+        <InfoRow tinted index="01" title="Primeiro contato" delay={0}>
+          <p>Uma mensagem pelo WhatsApp já é suficiente para começar.</p>
+        </InfoRow>
+        <InfoRow tinted index="02" title="Conversa inicial" delay={70}>
+          <p><Placeholder>CONFIRMAR: formato, duração e como o primeiro encontro é organizado</Placeholder></p>
+        </InfoRow>
+        <InfoRow tinted index="03" title="Encontros" delay={140}>
+          <p><Placeholder>CONFIRMAR: frequência e duração dos encontros</Placeholder></p>
+        </InfoRow>
+      </ul>
+
+      <h3 class="h3 how__sub" data-reveal>Modalidades de atendimento</h3>
+      <ul aria-label="Modalidades de atendimento">
+        <InfoRow tinted title="Presencial" delay={0}>
+          <p><Placeholder>CONFIRMAR: se atende presencialmente · cidade · endereço</Placeholder></p>
+        </InfoRow>
+        <InfoRow tinted title="Online" delay={70}>
+          <p><Placeholder>CONFIRMAR: se atende online · plataforma utilizada</Placeholder></p>
+        </InfoRow>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how__grid {
+    display: grid;
+    gap: var(--space-10);
+  }
+  .how__lists {
+    display: grid;
+    gap: var(--space-6);
+    align-content: start;
+  }
+  .how__sub {
+    margin-top: var(--space-8);
+  }
+
+  @media (min-width: 64rem) {
+    .how__grid {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: var(--space-16);
+    }
+  }
+</style>

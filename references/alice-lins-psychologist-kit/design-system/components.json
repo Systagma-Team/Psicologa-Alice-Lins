@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "status": "implementation architecture",
+    "note": "The Behance project is the visual authority. These technical component names are reconstructed for development."
+  },
+  "global": [
+    "SiteHeader",
+    "DesktopNavigation",
+    "MobileNavigation",
+    "PrimaryButton",
+    "SecondaryButton",
+    "SectionHeading",
+    "ProfessionalPortrait",
+    "CredentialBadge",
+    "SiteFooter"
+  ],
+  "home": [
+    "Hero",
+    "TrustStrip",
+    "AboutProfessional",
+    "SpecialtiesGrid",
+    "ApproachSection",
+    "HowTherapyWorks",
+    "SessionFormats",
+    "FAQ",
+    "BookingCTA"
+  ],
+  "optional_pages": [
+    "AboutPage",
+    "ServicesPage",
+    "ServiceDetailPage",
+    "FAQPage",
+    "ContactBookingPage",
+    "PrivacyPage"
+  ],
+  "domain_components": [
+    "SpecialtyCard",
+    "TreatmentApproachCard",
+    "SessionFormatCard",
+    "CredentialList",
+    "AvailabilityNotice",
+    "ConfidentialityNotice",
+    "ContactCard",
+    "BookingForm"
+  ],
+  "interaction_rules": {
+    "primary_action": "Use one dominant scheduling/contact action per viewport.",
+    "cards": "Avoid overly commercial e-commerce styling; cards should feel informational and reassuring.",
+    "forms": "Use visible labels, clear validation, explicit privacy consent and large touch targets.",
+    "motion": "Prefer subtle opacity/translate transitions; avoid fast parallax or distracting motion.",
+    "mobile": "Keep contact/booking action reachable without hiding professional credentials."
+  }
+}

@@ -1,0 +1,91 @@
+---
+import Button from '../Button.astro';
+import { site } from '../../data/site';
+---
+
+<section class="section about" id="sobre" aria-labelledby="sobre-title">
+  <div class="container about__grid">
+    <!-- Reservado: foto secundária (ver docs/PENDING.md). Por ora, uma frase da própria Alice. -->
+    <figure class="about__quote" data-reveal>
+      <blockquote>
+        <p>Ser psicóloga é, para mim, ser testemunha, ponte e sustento para que cada um possa ser quem é.</p>
+      </blockquote>
+      <figcaption>{site.name}</figcaption>
+    </figure>
+
+    <div class="about__copy" data-reveal style="--reveal-delay: 120ms">
+      <p class="eyebrow">Sobre</p>
+      <h2 class="h2" id="sobre-title">Olá, me chamo <em>Alice Lins.</em></h2>
+      <div class="prose">
+        <p>
+          Sou {site.fullName}, psicóloga formada pela UFRN, campus Natal, e encontro na fenomenologia-existencial
+          uma âncora para a minha prática.
+        </p>
+        <p>
+          Minha trajetória foi construída em diferentes experiências dentro da Psicologia, entre vivências
+          práticas, extensão e pesquisa. Mais do que aplicar uma técnica, compreendo meu trabalho como um
+          compromisso ético com a escuta, o acolhimento e a validação das existências.
+        </p>
+        <p>
+          Para mim, ser psicóloga também é caminhar junto: reconhecer a dignidade presente em cada história,
+          sustentar perguntas e estar disponível para aquilo que pode surgir no encontro.
+        </p>
+      </div>
+      <Button href="#abordagem" variant="secondary" arrow>Conhecer minha abordagem</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__grid {
+    display: grid;
+    gap: var(--space-12);
+    align-items: center;
+  }
+  .about__copy {
+    display: grid;
+    gap: var(--space-5);
+    justify-items: start;
+  }
+  .about__quote {
+    margin: 0;
+    display: grid;
+    align-content: space-between;
+    gap: var(--space-8);
+    min-height: 22rem;
+    padding: var(--space-10) var(--space-8);
+    border-radius: var(--radius-xl);
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+  }
+  .about__quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.15rem);
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  .about__quote blockquote::before {
+    content: '“';
+    display: block;
+    font-size: 4rem;
+    line-height: 0.7;
+    color: var(--color-accent);
+  }
+  .about__quote figcaption {
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 64rem) {
+    .about__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: var(--space-20);
+    }
+    .about__quote {
+      min-height: 32rem;
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+{
+  "project": {
+    "name": "Psychologist Web Design",
+    "author": "Designs Xpert",
+    "published": "2024-02-05",
+    "behance": "https://www.behance.net/gallery/190809487/Psychologist-Web-Design",
+    "tools_declared_by_behance": [
+      "Figma",
+      "Adobe Photoshop"
+    ],
+    "tags": [
+      "psychologist",
+      "psychology",
+      "therapy",
+      "Health",
+      "doctor",
+      "psychologist website",
+      "Figma",
+      "UI/UX",
+      "ui design",
+      "Web Design"
+    ]
+  },
+  "source_boards": [
+    {
+      "id": "board-01",
+      "filename": "psychologist-reference-01.png",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/source/5fb7d5190809487.65c11c318b9f5.png"
+    },
+    {
+      "id": "board-02",
+      "filename": "psychologist-reference-02.png",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/source/ba0571190809487.65c11c3188aab.png"
+    },
+    {
+      "id": "board-03",
+      "filename": "psychologist-reference-03.png",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/source/3b1489190809487.65c11c318abb6.png"
+    },
+    {
+      "id": "board-04",
+      "filename": "psychologist-reference-04.png",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/source/cfd332190809487.65c11c31896d1.png"
+    },
+    {
+      "id": "board-05",
+      "filename": "psychologist-reference-05.png",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/source/671ae7190809487.65c11c3187e63.png"
+    }
+  ],
+  "source_certainty": {
+    "confirmed": [
+      "Project title, owner, publish date, tools and tags.",
+      "Five public source-image URLs linked by the Behance project."
+    ],
+    "not_exposed_as_text": [
+      "Exact font family and weights",
+      "Exact color palette",
+      "Figma variables/tokens",
+      "Component definitions",
+      "Auto-layout/constraints",
+      "Original isolated photography or icons when flattened into boards"
+    ]
+  }
+}

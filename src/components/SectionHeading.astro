@@ -1,0 +1,27 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string; // aceita <em> para ênfase editorial (conteúdo autoral, não vem de usuários)
+  lead?: string;
+  id?: string;
+  align?: 'start' | 'center';
+}
+const { eyebrow, title, lead, id, align = 'start' } = Astro.props;
+---
+
+<header class:list={['heading', `heading--${align}`]}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h2 class="h2" id={id} set:html={title} />
+  {lead && <p class="lead muted">{lead}</p>}
+</header>
+
+<style>
+  .heading {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .heading--center {
+    text-align: center;
+    justify-items: center;
+  }
+</style>

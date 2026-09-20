@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import TrustStrip from '../components/sections/TrustStrip.astro';
+import About from '../components/sections/About.astro';
+import Approach from '../components/sections/Approach.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import Trajectory from '../components/sections/Trajectory.astro';
+import Symbol from '../components/sections/Symbol.astro';
+import Faq from '../components/sections/Faq.astro';
+import ContactCTA from '../components/sections/ContactCTA.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout>
+  <Hero />
+  <TrustStrip />
+  <About />
+  <Approach />
+  {site.showDraftSections && <HowItWorks />}
+  <Trajectory />
+  <Symbol />
+  <Faq />
+  <ContactCTA />
+</BaseLayout>

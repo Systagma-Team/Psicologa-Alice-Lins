@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/photos/alice-portrait-provisional.jpg';
+
+// FOTO PROVISÓRIA: recorte de screenshot do Instagram (scripts/crop-portrait.mjs).
+// Trocar por foto original em alta resolução — ver docs/PENDING.md.
+interface Props {
+  priority?: boolean;
+}
+const { priority = false } = Astro.props;
+---
+
+<figure class="portrait" data-asset="provisional-portrait">
+  <Image
+    src={portrait}
+    alt="Retrato de Alice Lins, psicóloga, sorrindo, de cabelos cacheados, diante de uma parede bordô."
+    widths={[320, 480, 578]}
+    sizes="(min-width: 64rem) 420px, (min-width: 48rem) 380px, 78vw"
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    decoding="async"
+  />
+</figure>
+
+<style>
+  .portrait {
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-portrait);
+    overflow: hidden;
+    background: var(--color-primary-strong);
+  }
+  .portrait :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+</style>

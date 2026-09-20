@@ -1,0 +1,27 @@
+{
+  "source_status": "observed_and_sampled_from_user_supplied_instagram_screenshots",
+  "logo_symbol": {
+    "description": "Traço circular aberto com curva/onda interna.",
+    "meaning_from_alice_post": "A incompletude é apresentada como potência: o ser humano como processo contínuo, aberto e em constante transformação. O símbolo se relaciona a movimento, construção do eu e abertura para o novo.",
+    "usage_note": "Não redesenhar livremente o símbolo se houver arquivo vetorial/original da cliente. Usar esta descrição apenas como referência semântica."
+  },
+  "observed_palette": {
+    "deep_burgundy_sampled": "#521A1B",
+    "dark_burgundy": "#4B1817",
+    "warm_brown": "#744439",
+    "dusty_rose": "#B28577",
+    "soft_rose": "#BB8D82",
+    "warm_sunset_orange_approx": "#B86133",
+    "warm_cream_approx": "#D8C3A5",
+    "near_black": "#090E11"
+  },
+  "palette_accuracy_note": "O bordô #521A1B foi amostrado diretamente de uma área sólida do post fornecido. Os demais tons são aproximações visuais/amostras de screenshots comprimidos e devem ser conferidos com os arquivos originais da identidade visual.",
+  "visual_language": [
+    "Bordô profundo como cor institucional forte.",
+    "Bege/creme e tons quentes em contraste.",
+    "Fotografia com atmosfera acolhedora e luz quente.",
+    "Uso de paisagens, pôr do sol e imagens de trajetória pessoal.",
+    "Tipografia editorial/serif em peças reflexivas e apoio de tipografia simples para textos.",
+    "Linhas finas e bastante espaço para composição contemplativa."
+  ]
+}

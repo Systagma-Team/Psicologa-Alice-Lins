@@ -1,0 +1,209 @@
+---
+import Button from './Button.astro';
+import { nav, site, whatsappUrl } from '../data/site';
+---
+
+<header class="site-header" data-header>
+  <div class="container--wide header__inner">
+    <a class="brand" href="#inicio" aria-label={`${site.name}, ${site.role} — início da página`}>
+      <!-- Espaço reservado para o símbolo profissional (arquivo original pendente). -->
+      <span class="brand__name">{site.name}</span>
+      <span class="brand__role">{site.role} · {site.crp}</span>
+    </a>
+
+    <nav class="nav" id="menu" aria-label="Principal" data-nav>
+      <ul>
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <span class="header__cta">
+        <Button href={whatsappUrl} variant="secondary" external ariaLabel="Vamos conversar? Abrir conversa no WhatsApp">
+          <span class="cta-long">Vamos conversar?</span>
+          <span class="cta-short" aria-hidden="true">Conversar</span>
+        </Button>
+      </span>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu"
+        data-menu-toggle
+      >
+        <span class="visually-hidden">Menu</span>
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-base) var(--ease-out);
+  }
+  .site-header[data-scrolled='true'] {
+    border-bottom-color: var(--color-border);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: var(--header-h);
+  }
+
+  .brand {
+    display: grid;
+    align-content: center;
+    min-height: var(--touch-min);
+    line-height: 1.15;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+  .brand__name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+  }
+  .brand__role {
+    display: none;
+    font-size: var(--text-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .cta-short {
+    display: inline;
+  }
+  .cta-long {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    width: var(--touch-min);
+    height: var(--touch-min);
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+  }
+  .menu-toggle__bars,
+  .menu-toggle__bars::before {
+    display: block;
+    width: 1.1rem;
+    height: 1.5px;
+    background: var(--color-primary);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .menu-toggle__bars {
+    position: relative;
+    transform: translateY(-3px);
+  }
+  .menu-toggle__bars::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+  }
+  .menu-toggle[aria-expanded='true'] .menu-toggle__bars {
+    transform: rotate(45deg);
+  }
+  .menu-toggle[aria-expanded='true'] .menu-toggle__bars::before {
+    top: 0;
+    transform: rotate(-90deg);
+  }
+
+  /* Menu (mobile/tablet): painel sob o header. Sem JS, fica visível em linha. */
+  .nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+  }
+  :global(.js) .nav {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    padding: var(--space-4) var(--page-gutter) var(--space-8);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    display: none;
+  }
+  :global(.js) .nav[data-open='true'] {
+    display: block;
+  }
+  :global(.js) .nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav a {
+    display: flex;
+    align-items: center;
+    min-height: var(--touch-min);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  :global(.js) .nav a {
+    min-height: 3.25rem;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+  }
+
+  @media (min-width: 30rem) {
+    .cta-long {
+      display: inline;
+    }
+    .cta-short {
+      display: none;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .brand__role {
+      display: block;
+    }
+    .menu-toggle {
+      display: none;
+    }
+    :global(.js) .nav {
+      position: static;
+      display: block;
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+    :global(.js) .nav ul {
+      flex-direction: row;
+      gap: var(--space-2);
+    }
+    :global(.js) .nav a,
+    .nav a {
+      min-height: var(--touch-min);
+      padding: 0 var(--space-3);
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      border: 0;
+    }
+  }
+</style>

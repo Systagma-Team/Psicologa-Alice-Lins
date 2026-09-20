@@ -1,0 +1,111 @@
+/*
+  Design tokens — Alice Lins
+
+  Camadas:
+  1. Paleta da Alice (client-profile/brand-overrides.css). Somente #521A1B foi
+     amostrado diretamente; os demais tons são aproximações a conferir com os
+     arquivos originais da identidade.
+  2. Escalas de espaçamento, raios e tipografia do kit de referência
+     (design-system/*.json) — valores reconstruídos, não tokens originais do Behance.
+  3. Fontes: Fraunces e Figtree são SUBSTITUTAS. Não são as fontes oficiais da marca.
+
+  Nenhum componente deve usar cor, fonte, espaçamento ou raio "solto":
+  sempre estes tokens.
+
+  Breakpoints (CSS não aceita var() em @media — manter em sincronia):
+    --bp-sm: 30rem (480px)   --bp-md: 48rem (768px)   --bp-lg: 64rem (1024px)
+*/
+:root {
+  /* ---------- 1. Paleta ---------- */
+  --alice-burgundy: #521a1b;
+  --alice-burgundy-deep: #4b1817;
+  --alice-brown: #744439;
+  --alice-dusty-rose: #b28577;
+  --alice-soft-rose: #bb8d82;
+  --alice-sunset: #b86133;
+  --alice-cream: #d8c3a5;
+  --alice-ink: #171313;
+  --alice-paper: #f6f0e8;
+
+  /* ---------- Semântica ---------- */
+  --color-bg: var(--alice-paper);
+  --color-surface: #fffdfc;
+  --color-surface-soft: #efe4d8;
+  --color-text: var(--alice-ink);
+  --color-text-muted: #695750;
+  --color-primary: var(--alice-burgundy);
+  --color-primary-strong: var(--alice-burgundy-deep);
+  --color-primary-soft: #eadbd3;
+  --color-border: #dccbc0;
+  --color-focus: var(--alice-burgundy);
+
+  /* Laranja-pôr-do-sol: ~3,9:1 sobre o creme. Só para detalhes e texto grande. */
+  --color-accent: var(--alice-sunset);
+
+  /* Superfícies escuras (bordô) */
+  --color-on-primary: var(--alice-paper);
+  --color-on-primary-muted: #e0d3c7;
+  --color-on-primary-accent: var(--alice-soft-rose);
+  --color-border-on-primary: rgba(246, 240, 232, 0.28);
+  --color-focus-on-primary: var(--alice-paper);
+
+  /* Marcação de dado pendente de confirmação */
+  --color-pending-bg: #f7e6d4;
+  --color-pending-border: var(--alice-sunset);
+
+  /* ---------- 3. Tipografia ---------- */
+  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Figtree Variable', 'Helvetica Neue', Arial, sans-serif;
+
+  --text-display: clamp(2.15rem, 1.15rem + 4.2vw, 4.6rem);
+  --text-h2: clamp(1.9rem, 1.2rem + 2.6vw, 3.25rem);
+  --text-h3: clamp(1.3rem, 1.05rem + 0.9vw, 1.7rem);
+  --text-lead: clamp(1.06rem, 1rem + 0.3vw, 1.2rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-label: 0.75rem;
+
+  --leading-display: 1.04;
+  --leading-heading: 1.12;
+  --leading-body: 1.7;
+
+  /* ---------- 2. Espaçamento (base 4px) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --section-y: clamp(4rem, 8vw, 7.5rem);
+
+  /* ---------- Raios ---------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-portrait: 42% 42% 20px 20px;
+  --radius-pill: 999px;
+
+  /* ---------- Layout ---------- */
+  --content-max: 1100px;
+  --content-wide: 1240px;
+  --reading-max: 44rem;
+  --page-gutter: clamp(1.25rem, 4vw, 4rem);
+  --header-h: 4.5rem;
+
+  /* ---------- Movimento ---------- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 700ms;
+
+  --touch-min: 2.75rem; /* 44px */
+}

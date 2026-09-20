@@ -1,0 +1,71 @@
+---
+import FAQItem from '../FAQItem.astro';
+import SectionHeading from '../SectionHeading.astro';
+import { site, whatsappUrl } from '../../data/site';
+
+/*
+  Só perguntas respondíveis com dados confirmados ou com o discurso da própria Alice.
+  Valores, duração, frequência e modalidades ficam de fora até a confirmação (docs/PENDING.md).
+  A resposta 4 cita CVV 188 e SAMU 192 (serviços públicos) — aguardando aprovação da Alice.
+*/
+---
+
+<section class="section section--soft faq" id="duvidas" aria-labelledby="duvidas-title">
+  <div class="container faq__grid">
+    <div data-reveal>
+      <SectionHeading eyebrow="Dúvidas" title="Perguntas que <em>podem surgir.</em>" id="duvidas-title" />
+    </div>
+
+    <div class="faq__list" data-reveal style="--reveal-delay: 100ms">
+      <FAQItem question="O que é a abordagem fenomenológico-existencial?">
+        <p>
+          É uma perspectiva que parte da experiência vivida de cada pessoa, sem reduzi-la a rótulos ou respostas
+          prontas. Nela, o ser humano é compreendido como alguém em processo: atravessado por escolhas, encontros
+          e mudanças, e sempre aberto a novas possibilidades. É a âncora da minha prática.
+        </p>
+      </FAQItem>
+
+      <FAQItem question="A terapia vai fazer o sofrimento passar?">
+        <p>
+          Não trabalho com promessas de resultado. Para mim, a terapia não busca calar o sofrimento, mas
+          compreender o que ele anuncia — e isso se dá no ritmo de cada processo.
+        </p>
+      </FAQItem>
+
+      <FAQItem question="Como faço para entrar em contato?">
+        <p>
+          O caminho mais direto é o <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+          Você também pode escrever para
+          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> ou pelo
+          <a href={site.contact.instagram.url} target="_blank" rel="noopener noreferrer">Instagram {site.contact.instagram.handle}</a>.
+        </p>
+      </FAQItem>
+
+      <FAQItem question="O WhatsApp serve para situações de emergência?">
+        <p>
+          Não. Meu contato não funciona como canal de urgência. Em situação de crise, procure o CVV (188, 24
+          horas, gratuito), o SAMU (192) ou o serviço de saúde mais próximo.
+        </p>
+      </FAQItem>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq__grid {
+    display: grid;
+    gap: var(--space-10);
+  }
+  .faq__list {
+    display: grid;
+    gap: var(--space-3);
+    align-content: start;
+  }
+
+  @media (min-width: 64rem) {
+    .faq__grid {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: var(--space-16);
+    }
+  }
+</style>

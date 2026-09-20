@@ -1,0 +1,49 @@
+---
+import { site } from '../../data/site';
+
+// Tudo confirmado: nome, formação, abordagem e CRP (client-profile/professional-data.json).
+const items = [
+  { label: 'Formação', value: `${site.education.degree} pela ${site.education.institution}, campus ${site.education.campus}` },
+  { label: 'Abordagem', value: site.approach },
+  { label: 'Registro profissional', value: site.crp },
+];
+---
+
+<section class="strip" aria-label="Formação, abordagem e registro profissional">
+  <ul class="container strip__list">
+    {
+      items.map((item, i) => (
+        <li class="strip__item" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
+          <span class="eyebrow">{item.label}</span>
+          <span class="strip__value h3">{item.value}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .strip {
+    padding-block: var(--space-8) var(--space-4);
+  }
+  .strip__list {
+    display: grid;
+    gap: 0;
+  }
+  .strip__item {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-6) 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .strip__value {
+    font-weight: 450;
+  }
+
+  @media (min-width: 48rem) {
+    .strip__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-10);
+    }
+  }
+</style>

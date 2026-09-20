@@ -1,0 +1,72 @@
+---
+/**
+ * Linha editorial: rótulo/numeral + título serif + descrição.
+ * Traduz as listas de "sessões" da referência (título à esquerda, texto à direita).
+ */
+interface Props {
+  title: string;
+  index?: string;
+  tinted?: boolean;
+  /** Atraso (ms) da revelação ao rolar; omitido = sem revelação. */
+  delay?: number;
+}
+const { title, index, tinted = false, delay } = Astro.props;
+---
+
+<li
+  class:list={['row', { 'row--tinted': tinted }]}
+  {...delay !== undefined ? { 'data-reveal': '', style: `--reveal-delay: ${delay}ms` } : {}}
+>
+  {index && <span class="row__index" aria-hidden="true">{index}</span>}
+  <h3 class="row__title h3">{title}</h3>
+  <div class="row__body muted"><slot /></div>
+</li>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2) var(--space-8);
+    align-items: baseline;
+    padding: var(--space-6) var(--space-4);
+    box-shadow: inset 0 -1px 0 var(--color-border);
+    border-radius: var(--radius-md);
+    /* Inclui opacity/transform para conviver com a revelação global ([data-reveal]). */
+    transition:
+      background-color var(--dur-base) var(--ease-out),
+      opacity var(--dur-slow) var(--ease-out),
+      transform var(--dur-slow) var(--ease-out);
+    transition-delay: 0ms, var(--reveal-delay, 0ms), var(--reveal-delay, 0ms);
+  }
+  .row:hover {
+    background: var(--color-primary-soft);
+  }
+  .row--tinted {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+    margin-bottom: var(--space-3);
+  }
+  .row--tinted:hover {
+    background: var(--color-primary-soft);
+  }
+  .row__index {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-accent);
+  }
+  .row__title {
+    font-weight: 450;
+  }
+
+  @media (min-width: 48rem) {
+    .row {
+      grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.35fr);
+      padding-inline: var(--space-6);
+    }
+    /* Sem numeral: duas colunas */
+    .row:not(:has(.row__index)) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    }
+  }
+</style>

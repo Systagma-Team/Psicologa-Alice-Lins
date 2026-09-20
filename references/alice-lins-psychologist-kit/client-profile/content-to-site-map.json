@@ -1,0 +1,53 @@
+{
+  "source_status": "website_mapping_from_confirmed_instagram_content",
+  "home": {
+    "hero": {
+      "eyebrow": "Alice Lins • Psicóloga • CRP 17/9333",
+      "headline_options": [
+        "Psicologia ancorada pela fenomenologia-existencial.",
+        "Um espaço de escuta, presença e construção.",
+        "Caminhar junto também é uma forma de cuidado."
+      ],
+      "support": "Apresentar o atendimento como espaço de escuta e acolhimento, coerente com o posicionamento publicado pela profissional.",
+      "primary_cta": "Vamos conversar?"
+    },
+    "about": {
+      "source_points": [
+        "Alice Lins Mendes Barreto",
+        "Psicóloga formada pela UFRN, campus Natal",
+        "Abordagem fenomenológica-existencial",
+        "Vivências em diferentes contextos da Psicologia durante a formação",
+        "Extensão e pesquisa como partes valorizadas da trajetória"
+      ]
+    },
+    "approach": {
+      "title_options": [
+        "Minha abordagem",
+        "Como compreendo a Psicologia",
+        "Um fazer construído na presença"
+      ],
+      "themes": [
+        "Acolher e validar existências",
+        "Reconhecer dignidade e singularidade",
+        "Compreender o ser humano como processo",
+        "Sustentar abertura, movimento e transformação"
+      ]
+    },
+    "symbol": {
+      "recommended_section": true,
+      "title": "Um símbolo em movimento",
+      "purpose": "Explicar o círculo aberto como expressão da incompletude enquanto potência e da vida como processo contínuo."
+    },
+    "experience": {
+      "title": "Trajetória",
+      "reported": [
+        "Experiências da neuropsicologia à psicologia organizacional",
+        "Extensões e pesquisas",
+        "Atendimento a diferentes faixas etárias",
+        "Experiência presencial e online",
+        "Contato com demandas envolvendo luto, sobrecarga, medo e ansiedade"
+      ],
+      "confirmation_required": "Não transformar automaticamente essas experiências em lista de especialidades ou serviços atuais."
+    }
+  }
+}

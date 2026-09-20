@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "status": "recommended_content_architecture",
+    "purpose": "Personal website for a psychology professional; adapt to the professional's real credentials and services."
+  },
+  "navigation": [
+    "Início",
+    "Sobre",
+    "Atuação",
+    "Como funciona",
+    "Dúvidas",
+    "Contato"
+  ],
+  "hero": {
+    "eyebrow": "Psicologia • Atendimento profissional",
+    "headline_template": "Um espaço de escuta, cuidado e desenvolvimento.",
+    "supporting_text": "Present the professional's real specialty, audience and session format without promising clinical outcomes.",
+    "primary_cta": "Agendar conversa",
+    "secondary_cta": "Conhecer abordagem"
+  },
+  "trust": [
+    "Nome profissional",
+    "Registro profissional/CRP when applicable",
+    "Formação e especializações reais",
+    "Modalidade presencial/online",
+    "Cidade/estado when applicable"
+  ],
+  "about": [
+    "Professional portrait",
+    "Short biography",
+    "Education",
+    "Clinical/professional approach",
+    "Who the work is intended for"
+  ],
+  "specialties": [
+    "Use only services/areas the professional actually provides.",
+    "Examples must be replaced with the professional's verified scope."
+  ],
+  "process": [
+    "Primeiro contato",
+    "Alinhamento inicial",
+    "Sessões",
+    "Acompanhamento"
+  ],
+  "booking": [
+    "Preferred contact channel",
+    "Session format",
+    "Availability guidance",
+    "Privacy notice",
+    "Emergency/crisis boundary if relevant to the practice"
+  ]
+}

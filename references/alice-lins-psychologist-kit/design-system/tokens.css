@@ -1,0 +1,150 @@
+/*
+  Psychologist Behance Kit
+  IMPORTANT:
+  - Project/source image references are source-derived.
+  - The token values below are reconstructed implementation defaults.
+  - Validate against the downloaded Behance boards before calling them final.
+*/
+:root {
+  --psy-paper: #F7F5F1;
+  --psy-white: #FFFFFF;
+  --psy-ink: #222522;
+  --psy-ink-soft: #4F554F;
+  --psy-sage-50: #EEF2EC;
+  --psy-sage-100: #E0E8DD;
+  --psy-sage-300: #B8C8B3;
+  --psy-sage-500: #7F9878;
+  --psy-sage-700: #53684F;
+  --psy-warm-100: #EEE6DC;
+  --psy-warm-300: #D7C6B6;
+  --psy-clay-500: #B78670;
+  --psy-border: #DDDCD6;
+
+  --color-bg: var(--psy-paper);
+  --color-surface: var(--psy-white);
+  --color-surface-soft: var(--psy-sage-50);
+  --color-text: var(--psy-ink);
+  --color-text-muted: var(--psy-ink-soft);
+  --color-primary: var(--psy-sage-700);
+  --color-primary-soft: var(--psy-sage-100);
+  --color-accent: var(--psy-clay-500);
+  --color-border: var(--psy-border);
+
+  /* Temporary substitutes, not confirmed source fonts. */
+  --font-display: Fraunces, Georgia, "Times New Roman", serif;
+  --font-ui: Inter, "Helvetica Neue", Arial, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-32: 128px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --content-max: 1240px;
+  --reading-max: 720px;
+  --page-gutter: clamp(20px, 4vw, 64px);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+}
+
+body { margin: 0; }
+
+.psy-container {
+  width: min(100% - (var(--page-gutter) * 2), var(--content-max));
+  margin-inline: auto;
+}
+
+.psy-section {
+  padding-block: clamp(64px, 8vw, 128px);
+}
+
+.psy-eyebrow {
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--color-primary);
+}
+
+.psy-display,
+.psy-h1,
+.psy-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+}
+
+.psy-display {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.psy-h2 {
+  font-size: clamp(2rem, 3.7vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+}
+
+.psy-copy {
+  max-width: var(--reading-max);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.psy-button {
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 600 .95rem/1 var(--font-ui);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.psy-button--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.psy-button--secondary {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.psy-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.72);
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.psy-focus-ring:focus-visible,
+.psy-button:focus-visible {
+  outline: 3px solid var(--psy-sage-300);
+  outline-offset: 3px;
+}

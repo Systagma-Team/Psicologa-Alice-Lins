@@ -1,0 +1,42 @@
+/* Alice Lins — brand overrides
+   Based on user-supplied Instagram screenshots.
+   #521A1B is sampled from a solid brand panel.
+   Other tones are approximate and should be checked against original brand assets.
+*/
+:root {
+  --alice-burgundy: #521A1B;
+  --alice-burgundy-deep: #4B1817;
+  --alice-brown: #744439;
+  --alice-dusty-rose: #B28577;
+  --alice-soft-rose: #BB8D82;
+  --alice-sunset: #B86133;
+  --alice-cream: #D8C3A5;
+  --alice-ink: #171313;
+  --alice-paper: #F6F0E8;
+
+  --color-bg: var(--alice-paper);
+  --color-surface: #FFFDFC;
+  --color-surface-soft: #EFE4D8;
+  --color-text: var(--alice-ink);
+  --color-text-muted: #695750;
+  --color-primary: var(--alice-burgundy);
+  --color-primary-soft: #EADBD3;
+  --color-accent: var(--alice-sunset);
+  --color-border: #DCCBC0;
+}
+
+/* Preserve the Behance layout language, but favor Alice's warmer,
+   deeper identity over the generic sage palette from the reference kit. */
+.psy-button--primary {
+  background: var(--alice-burgundy);
+  border-color: var(--alice-burgundy);
+}
+
+.psy-button--secondary {
+  color: var(--alice-burgundy);
+  border-color: var(--alice-burgundy);
+}
+
+.psy-eyebrow {
+  color: var(--alice-burgundy);
+}

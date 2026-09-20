@@ -1,0 +1,52 @@
+---
+import Button from '../Button.astro';
+import { site, whatsappUrl } from '../../data/site';
+const { email, instagram } = site.contact;
+---
+
+<section class="section on-dark cta" id="contato" aria-labelledby="contato-title">
+  <div class="container cta__inner" data-reveal>
+    <p class="eyebrow">Contato</p>
+    <h2 class="display" id="contato-title">Vamos conversar?</h2>
+    <p class="lead muted">
+      Se essa forma de compreender a Psicologia faz sentido para você, este pode ser um ponto de encontro.
+    </p>
+    <div class="cta__actions">
+      <Button href={whatsappUrl} variant="light" external arrow>Entrar em contato pelo WhatsApp</Button>
+    </div>
+    <p class="cta__alt muted">
+      Ou, se preferir:
+      <a href={`mailto:${email}`}>{email}</a> ·
+      <a href={instagram.url} target="_blank" rel="noopener noreferrer">Instagram {instagram.handle}<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background:
+      radial-gradient(70% 90% at 50% 120%, rgba(184, 97, 51, 0.3), transparent 65%),
+      var(--color-primary);
+  }
+  .cta__inner {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-5);
+    text-align: center;
+  }
+  .cta__inner .lead {
+    max-width: 36rem;
+  }
+  .cta__actions {
+    margin-top: var(--space-3);
+  }
+  .cta__alt {
+    font-size: var(--text-small);
+  }
+  .cta__alt a {
+    display: inline-block;
+    padding: var(--space-3) var(--space-1);
+    color: var(--color-on-primary);
+    text-underline-offset: 0.3em;
+  }
+</style>

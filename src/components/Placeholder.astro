@@ -1,0 +1,18 @@
+---
+/** Marca visualmente um dado que ainda depende de confirmação da Alice. Nunca inventar o conteúdo. */
+---
+
+<span class="pending"><span class="visually-hidden">Informação pendente de confirmação: </span><slot /></span>
+
+<style>
+  .pending {
+    display: inline;
+    padding: 0.05em 0.5em;
+    border: 1px dashed var(--color-pending-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-pending-bg);
+    color: var(--color-text);
+    font-size: 0.92em;
+    line-height: 1.9;
+  }
+</style>

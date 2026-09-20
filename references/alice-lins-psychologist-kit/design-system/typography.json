@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "status": "reconstructed_for_implementation",
+    "exact_source_font": "not exposed in accessible Behance metadata",
+    "rule": "Do not state that the substitute fonts are the original fonts from the case."
+  },
+  "families": {
+    "display_substitute": "Fraunces, Georgia, \"Times New Roman\", serif",
+    "ui_substitute": "Inter, \"Helvetica Neue\", Arial, sans-serif"
+  },
+  "scale": {
+    "display": {
+      "fontSize": "clamp(3rem, 6vw, 6rem)",
+      "lineHeight": 0.98,
+      "fontWeight": 500,
+      "letterSpacing": "-0.035em"
+    },
+    "h1": {
+      "fontSize": "clamp(2.6rem, 5vw, 4.8rem)",
+      "lineHeight": 1.0,
+      "fontWeight": 500,
+      "letterSpacing": "-0.03em"
+    },
+    "h2": {
+      "fontSize": "clamp(2rem, 3.7vw, 3.5rem)",
+      "lineHeight": 1.05,
+      "fontWeight": 500,
+      "letterSpacing": "-0.025em"
+    },
+    "h3": {
+      "fontSize": "clamp(1.35rem, 2vw, 1.8rem)",
+      "lineHeight": 1.2,
+      "fontWeight": 600
+    },
+    "body-lg": {
+      "fontSize": "1.125rem",
+      "lineHeight": 1.7,
+      "fontWeight": 400
+    },
+    "body": {
+      "fontSize": "1rem",
+      "lineHeight": 1.65,
+      "fontWeight": 400
+    },
+    "small": {
+      "fontSize": "0.875rem",
+      "lineHeight": 1.5,
+      "fontWeight": 450
+    },
+    "label": {
+      "fontSize": "0.75rem",
+      "lineHeight": 1.35,
+      "fontWeight": 600,
+      "letterSpacing": "0.06em"
+    }
+  }
+}

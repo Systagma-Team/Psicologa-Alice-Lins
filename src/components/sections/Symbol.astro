@@ -1,0 +1,58 @@
+---
+import SymbolFigure from '../SymbolFigure.astro';
+---
+
+<section class="section on-dark symbol" id="simbolo" aria-labelledby="simbolo-title">
+  <div class="container symbol__grid">
+    <div class="symbol__copy" data-reveal>
+      <p class="eyebrow">Um símbolo em movimento</p>
+      <h2 class="h2" id="simbolo-title">Por que um círculo <em>que não se fecha?</em></h2>
+      <div class="prose muted">
+        <p>
+          O meu símbolo profissional parte da ideia de que o ser humano está em processo contínuo de construção.
+        </p>
+        <p>
+          O traço aberto representa a incompletude como potência: movimento, transformação e a possibilidade de
+          deixar espaço para o novo. Estar em construção não é defeito, atraso ou falta, mas a nossa maior prova
+          de vitalidade.
+        </p>
+      </div>
+      <p class="symbol__quote">
+        A verdadeira vitalidade habita nos espaços que deixamos em aberto para o novo entrar.
+      </p>
+    </div>
+
+    <div data-reveal style="--reveal-delay: 150ms">
+      <SymbolFigure />
+    </div>
+  </div>
+</section>
+
+<style>
+  .symbol__grid {
+    display: grid;
+    gap: var(--space-12);
+    align-items: center;
+  }
+  .symbol__copy {
+    display: grid;
+    gap: var(--space-5);
+  }
+  .symbol__quote {
+    margin-top: var(--space-3);
+    padding-left: var(--space-5);
+    border-left: 2px solid var(--color-on-primary-accent);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-h3);
+    line-height: 1.3;
+    max-width: 30ch;
+  }
+
+  @media (min-width: 64rem) {
+    .symbol__grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: var(--space-20);
+    }
+  }
+</style>

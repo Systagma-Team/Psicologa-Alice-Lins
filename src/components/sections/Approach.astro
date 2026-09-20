@@ -1,0 +1,63 @@
+---
+import InfoRow from '../InfoRow.astro';
+import SectionHeading from '../SectionHeading.astro';
+
+// Princípios extraídos do vocabulário da própria Alice (client-profile/WEBSITE-COPY.md).
+const principles = [
+  { title: 'Escuta', text: 'Um encontro que parte da experiência vivida por cada pessoa.' },
+  { title: 'Presença', text: 'Estar com o outro sem reduzir sua história a uma resposta pronta.' },
+  {
+    title: 'Singularidade',
+    text: 'Reconhecer que cada existência possui caminhos, sentidos e modos próprios de estar no mundo.',
+  },
+  { title: 'Movimento', text: 'Compreender a vida como processo, abertura e possibilidade de transformação.' },
+];
+---
+
+<section class="section approach" id="abordagem" aria-labelledby="abordagem-title">
+  <div class="container">
+    <div class="approach__head" data-reveal>
+      <SectionHeading
+        eyebrow="Minha abordagem"
+        title="Um processo que não precisa estar fechado <em>para ter sentido.</em>"
+        id="abordagem-title"
+      />
+      <div class="prose muted">
+        <p>
+          Na perspectiva fenomenológico-existencial, a experiência humana não é tratada como algo pronto ou
+          definitivo. Somos atravessados por escolhas, encontros, mudanças e possibilidades.
+        </p>
+        <p>
+          A incompletude, aqui, não aparece como falha. Ela pode ser compreendida como espaço para o novo, para
+          a experiência e para a continuidade da vida.
+        </p>
+      </div>
+    </div>
+
+    <ul class="approach__list" aria-label="Princípios do trabalho">
+      {principles.map((p, i) => (
+        <InfoRow title={p.title} index={`0${i + 1}`} delay={i * 70}>
+          <p>{p.text}</p>
+        </InfoRow>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .approach__head {
+    display: grid;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+  }
+  .approach__list {
+    border-top: 1px solid var(--color-border);
+  }
+  @media (min-width: 64rem) {
+    .approach__head {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: var(--space-16);
+      align-items: end;
+    }
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+interface Props {
+  question: string;
+}
+const { question } = Astro.props;
+---
+
+<details class="faq">
+  <summary class="faq__q">
+    <span>{question}</span>
+    <span class="faq__icon" aria-hidden="true"></span>
+  </summary>
+  <div class="faq__a prose muted"><slot /></div>
+</details>
+
+<style>
+  .faq {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: 0 1px 0 var(--color-border), 0 8px 24px -16px rgba(82, 26, 27, 0.25);
+  }
+  .faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 3.75rem;
+    padding: var(--space-4) var(--space-6);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.3;
+    cursor: pointer;
+    list-style: none;
+    border-radius: var(--radius-md);
+  }
+  .faq__q::-webkit-details-marker {
+    display: none;
+  }
+  .faq__icon {
+    flex: none;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+  }
+  .faq__icon::before,
+  .faq__icon::after {
+    content: '';
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 0.65rem;
+    height: 1px;
+    background: var(--color-primary);
+    transform: translate(-50%, -50%);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .faq__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .faq[open] .faq__icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  .faq__a {
+    padding: 0 var(--space-6) var(--space-6);
+  }
+  .faq__a :global(a) {
+    color: var(--color-primary);
+    text-underline-offset: 0.2em;
+  }
+</style>

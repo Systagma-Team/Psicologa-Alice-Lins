@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "status": "reconstructed_for_implementation",
+    "source_status": "The Behance page does not expose an exact text palette.",
+    "instruction": "After downloading the five source boards, visually validate and adjust these values before production."
+  },
+  "primitive": {
+    "paper": "#F7F5F1",
+    "white": "#FFFFFF",
+    "ink": "#222522",
+    "ink-soft": "#4F554F",
+    "sage-50": "#EEF2EC",
+    "sage-100": "#E0E8DD",
+    "sage-300": "#B8C8B3",
+    "sage-500": "#7F9878",
+    "sage-700": "#53684F",
+    "warm-100": "#EEE6DC",
+    "warm-300": "#D7C6B6",
+    "clay-500": "#B78670",
+    "border": "#DDDCD6"
+  },
+  "semantic": {
+    "background": "#F7F5F1",
+    "surface": "#FFFFFF",
+    "surface-soft": "#EEF2EC",
+    "text-primary": "#222522",
+    "text-secondary": "#4F554F",
+    "primary": "#53684F",
+    "primary-soft": "#E0E8DD",
+    "accent": "#B78670",
+    "border": "#DDDCD6",
+    "focus": "#7F9878",
+    "success": "#53684F"
+  }
+}

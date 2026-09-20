@@ -1,0 +1,55 @@
+{
+  "source_status": "derived_from_user_supplied_instagram_screenshots",
+  "voice": {
+    "tone": [
+      "acolhedor",
+      "reflexivo",
+      "sensível",
+      "existencial",
+      "poético sem ser excessivamente abstrato",
+      "profissional"
+    ],
+    "communication_style": [
+      "Fala em primeira pessoa e aproxima o leitor.",
+      "Utiliza perguntas abertas como convite à reflexão.",
+      "Evita linguagem de promessa ou solução rápida.",
+      "Usa metáforas de movimento, construção, fluxo, abertura, ponte e presença.",
+      "Valoriza processo em vez de perfeição ou fechamento."
+    ]
+  },
+  "recurring_concepts": [
+    "escuta",
+    "acolhimento",
+    "presença",
+    "existência",
+    "dignidade",
+    "processo",
+    "movimento",
+    "construção do eu",
+    "incompletude como potência",
+    "transformação",
+    "fluxo",
+    "abertura",
+    "caminhar junto",
+    "ser ponte",
+    "sustento",
+    "novas perguntas"
+  ],
+  "cta_language": {
+    "confirmed_profile_expression": "Vamos conversar?",
+    "confirmed_post_expression": "o link na minha bio é o nosso ponto de encontro",
+    "recommended_for_site": [
+      "Vamos conversar?",
+      "Entrar em contato",
+      "Conhecer minha abordagem",
+      "Consultar disponibilidade"
+    ]
+  },
+  "avoid": [
+    "promessas de cura",
+    "resultado garantido",
+    "tom agressivamente comercial",
+    "linguagem de alta performance",
+    "frases genéricas de autoajuda que destoem do posicionamento existencial"
+  ]
+}

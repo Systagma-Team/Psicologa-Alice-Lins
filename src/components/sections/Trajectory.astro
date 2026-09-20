@@ -1,0 +1,87 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+
+/*
+  Relato extraído do carrossel de apresentação da Alice (client-profile/SOURCE-NOTES.md).
+  Sem datas, sem números, sem títulos de especialização.
+  ATENÇÃO: o 4º item é experiência RELATADA — não é lista de serviços atuais.
+  Confirmar com a Alice se pode ser público (docs/PENDING.md).
+*/
+const steps = [
+  {
+    title: 'Formação',
+    text: 'Psicologia pela UFRN, campus Natal, onde encontrei na fenomenologia-existencial uma âncora para a minha prática.',
+  },
+  {
+    title: 'Vivências',
+    text: 'Cada vivência, da neuropsicologia à psicologia organizacional, moldou a minha escuta e o meu fazer profissional.',
+  },
+  {
+    title: 'Extensão e pesquisa',
+    text: 'Entre extensões e pesquisas, descobri que é através do buscar constante por novas perguntas que se faz psicologia.',
+  },
+  {
+    title: 'Encontros',
+    text: 'Nos últimos anos, testemunhei vidas de crianças, adolescentes, adultos e idosos, de forma presencial e online, caminhando junto a quem enfrentava luto, sobrecarga, medo e ansiedade.',
+  },
+];
+---
+
+<section class="section trajectory" id="trajetoria" aria-labelledby="trajetoria-title">
+  <div class="container">
+    <div data-reveal>
+      <SectionHeading
+        eyebrow="Trajetória"
+        title="Uma formação construída <em>em movimento.</em>"
+        id="trajetoria-title"
+        lead="Diferentes cenários da Psicologia e um mesmo compromisso: a escuta."
+      />
+    </div>
+
+    <ol class="steps">
+      {
+        steps.map((s, i) => (
+          <li class="step" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
+            <span class="step__num" aria-hidden="true">0{i + 1}</span>
+            <h3 class="h3">{s.title}</h3>
+            <p class="muted">{s.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: grid;
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+  }
+  .step {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-8) var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+  .step__num {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    line-height: 1;
+    color: var(--color-accent);
+  }
+
+  @media (min-width: 48rem) {
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 64rem) {
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

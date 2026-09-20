@@ -1,0 +1,104 @@
+---
+import Button from '../Button.astro';
+import ProfessionalPortrait from '../ProfessionalPortrait.astro';
+import { site, whatsappUrl } from '../../data/site';
+---
+
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="container--wide">
+    <div class="hero__panel on-dark">
+      <!-- Filete editorial das peças da Alice: CRP à esquerda, perfil à direita -->
+      <div class="hero__rule" aria-hidden="true">
+        <span>{site.crp}</span>
+        <span>{site.contact.instagram.handle}</span>
+      </div>
+
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-reveal>{site.name} · {site.role}</p>
+          <h1 class="display" id="hero-title" data-reveal style="--reveal-delay: 80ms">
+            Psicologia ancorada pela <em>fenomenologia-existencial.</em>
+          </h1>
+          <p class="lead muted" data-reveal style="--reveal-delay: 160ms">
+            Um espaço de escuta, presença e acolhimento para compreender a própria experiência, com respeito à
+            singularidade de cada história.
+          </p>
+          <div class="hero__actions" data-reveal style="--reveal-delay: 240ms">
+            <Button href={whatsappUrl} variant="light" external arrow>Vamos conversar?</Button>
+            <Button href="#abordagem" variant="link">Conhecer minha abordagem</Button>
+          </div>
+        </div>
+
+        <div class="hero__media" data-reveal style="--reveal-delay: 200ms">
+          <ProfessionalPortrait priority />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-2) var(--space-12);
+  }
+  .hero__panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    padding: var(--space-6) var(--space-6) var(--space-10);
+    background:
+      radial-gradient(90% 70% at 88% 105%, rgba(184, 97, 51, 0.32), transparent 62%),
+      var(--color-primary);
+  }
+  .hero__rule {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border-on-primary);
+    font-size: var(--text-small);
+    letter-spacing: 0.04em;
+    color: var(--color-on-primary-muted);
+  }
+  .hero__grid {
+    display: grid;
+    gap: var(--space-10);
+    padding-top: var(--space-10);
+  }
+  .hero__copy {
+    display: grid;
+    gap: var(--space-5);
+    align-content: center;
+    justify-items: start;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-5);
+    margin-top: var(--space-3);
+  }
+  .hero__media {
+    width: min(78%, 22rem);
+    justify-self: center;
+  }
+
+  @media (min-width: 48rem) {
+    .hero__panel {
+      padding: var(--space-6) var(--space-12) var(--space-12);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero__grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: var(--space-16);
+      padding-top: var(--space-12);
+    }
+    .hero__media {
+      width: 100%;
+      max-width: 26rem;
+      justify-self: end;
+    }
+  }
+</style>
