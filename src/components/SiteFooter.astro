@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-horizontal.png';
 import { site, whatsappUrl } from '../data/site';
 const year = new Date().getFullYear();
 const { whatsapp, email, instagram } = site.contact;
@@ -7,6 +9,7 @@ const { whatsapp, email, instagram } = site.contact;
 <footer class="footer on-dark">
   <div class="container footer__grid">
     <div class="footer__about">
+      <Image src={logo} alt={`${site.name}, ${site.role}`} width={640} class="footer__logo" loading="lazy" />
       <p class="footer__name">{site.fullName}</p>
       <p class="muted">{site.role} · {site.crp}</p>
       <p class="footer__tag muted">{site.tagline}</p>
@@ -39,6 +42,10 @@ const { whatsapp, email, instagram } = site.contact;
       (188) ou o SAMU (192).
     </p>
   </div>
+
+  <div class="container footer__credit">
+    <p>Site criado pela <strong>Systagma</strong></p>
+  </div>
 </footer>
 
 <style>
@@ -51,10 +58,14 @@ const { whatsapp, email, instagram } = site.contact;
     gap: var(--space-10);
     padding-bottom: var(--space-12);
   }
+  .footer__logo {
+    width: min(100%, 20rem);
+    height: auto;
+    margin-bottom: var(--space-6);
+  }
   .footer__name {
-    font-family: var(--font-display);
-    font-size: var(--text-h3);
-    line-height: 1.2;
+    font-size: var(--text-body);
+    font-weight: 600;
   }
   .footer__tag {
     margin-top: var(--space-4);
@@ -83,6 +94,18 @@ const { whatsapp, email, instagram } = site.contact;
     border-top: 1px solid var(--color-border-on-primary);
     font-size: var(--text-small);
     color: var(--color-on-primary-muted);
+  }
+
+  .footer__credit {
+    margin-top: var(--space-8);
+    text-align: center;
+    font-size: var(--text-small);
+    letter-spacing: 0.04em;
+    color: var(--color-on-primary-muted);
+  }
+  .footer__credit strong {
+    font-weight: 600;
+    color: var(--color-on-primary);
   }
 
   @media (min-width: 48rem) {

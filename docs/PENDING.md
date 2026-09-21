@@ -4,14 +4,18 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 
 ## Arquivos (assets)
 
-| Item | Onde entra | Situação atual |
-|---|---|---|
-| Foto profissional em alta resolução (retrato de estúdio) | `src/assets/photos/alice-portrait-provisional.jpg` (Hero) | **Provisória**: recorte de screenshot do Instagram (`scripts/crop-portrait.mjs`). Trocar o arquivo e, se preciso, o import em `ProfessionalPortrait.astro`. |
-| Segunda foto (ex.: formatura ou consultório) | Seção "Sobre" | Hoje mostra uma frase dela; há espaço para uma foto. |
-| **Símbolo original (SVG/PNG)**, versões clara e escura | `src/assets/brand/symbol.svg` (ou `.png`/`.webp`) | Espaço reservado; o arquivo é detectado automaticamente. **Não redesenhar.** |
-| Favicon / imagem de compartilhamento (Open Graph) | `public/favicon.svg` | Favicon provisório (monograma "A"). |
-| Fontes oficiais da marca (se existirem) | `src/styles/tokens.css` | Fraunces e Figtree são **substitutas**. |
-| Paleta oficial | `src/styles/tokens.css` | Só `#521A1B` foi amostrado; o restante é aproximação. |
+| Item | Situação |
+|---|---|
+| Fotos (`src/assets/photos/alice.jpeg` no Hero; `alice 2.jpeg` no Sobre) | **Recebidas e em uso.** Se houver versões maiores que 1000×1500, trocar os arquivos. |
+| Logos (`src/assets/brand/`) | **Recebidos e em uso** (cabeçalho, rodapé, seção do símbolo e favicon). São PNG: os derivados são gerados por `node scripts/prepare-brand.mjs`. |
+| **Logo/símbolo em vetor (SVG, AI ou PDF)** | Desejável: o PNG serve, mas o vetor fica nítido em qualquer tamanho. Se vier, trocar os imports em `SiteHeader`, `SiteFooter` e `SymbolFigure`. |
+| Versão do logo em bordô (para fundo claro) | Opcional: hoje o logo em cobre (`#C48C6C`) é usado direto no creme e no bordô. |
+| `logo apresentacao.png` (mockup na parede, 2,2 MB) | Não usado no site. Pode virar imagem de compartilhamento ou de identidade depois. |
+| Imagem de compartilhamento (Open Graph) | Falta; depende do domínio final. |
+| Fontes oficiais da marca (se existirem) | Fraunces e Figtree são **substitutas**. O logo usa um serif de traço fino e sans-serif espaçada nas versaletes; se ela souber os nomes, aproximamos. |
+| Paleta oficial | `#521A1B` (bordô) foi amostrado do Instagram; os cobres, dos PNGs dos logos. O restante é aproximação. |
+
+> **Foto `alice 2.jpeg`:** mostra um livro de ludoterapia e brinquedos ao fundo, o que pode sugerir atendimento infantil. Confirmar se ela quer essa foto no site enquanto o público atendido não estiver definido.
 
 ## Dados
 

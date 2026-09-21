@@ -1,28 +1,22 @@
 ---
+import { Image } from 'astro:assets';
+import symbol from '../assets/brand/symbol.png';
+
 /**
- * Símbolo profissional da Alice (círculo que não se fecha).
- * NÃO redesenhar. Ao receber o arquivo original, salvar como
- * `src/assets/brand/symbol.svg` (ou .png/.webp) — é detectado automaticamente.
+ * Símbolo profissional da Alice (círculo que não se fecha), recortado do logotipo original
+ * por scripts/prepare-brand.mjs. Não redesenhar. Se vier o SVG original, trocar o import.
  */
-const found = import.meta.glob('../assets/brand/symbol.{svg,png,webp}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>;
-const symbolUrl = Object.values(found)[0];
 ---
 
 <figure class="symbol">
-  {
-    symbolUrl ? (
-      <img src={symbolUrl} alt="Símbolo profissional de Alice Lins: um círculo aberto, que não se fecha." />
-    ) : (
-      <div class="symbol__slot" role="img" aria-label="Espaço reservado para o símbolo profissional de Alice Lins">
-        <span>Símbolo profissional</span>
-        <small>[aguardando o arquivo original]</small>
-      </div>
-    )
-  }
+  <Image
+    src={symbol}
+    alt="Símbolo profissional de Alice Lins: um círculo aberto, que não se fecha, atravessado por uma onda."
+    widths={[360, 600, 900]}
+    sizes="(min-width: 64rem) 440px, 80vw"
+    loading="lazy"
+    decoding="async"
+  />
 </figure>
 
 <style>
@@ -31,25 +25,8 @@ const symbolUrl = Object.values(found)[0];
     display: grid;
     place-items: center;
   }
-  .symbol img {
-    width: min(100%, 22rem);
+  .symbol :global(img) {
+    width: min(100%, 27rem);
     height: auto;
-  }
-  .symbol__slot {
-    display: grid;
-    place-content: center;
-    gap: var(--space-2);
-    width: min(100%, 22rem);
-    aspect-ratio: 1;
-    border: 1px dashed var(--color-border-on-primary);
-    border-radius: 50%;
-    text-align: center;
-    color: var(--color-on-primary-muted);
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-  }
-  .symbol__slot small {
-    font-family: var(--font-ui);
-    font-size: var(--text-small);
   }
 </style>

@@ -1,6 +1,7 @@
 ---
 import Button from '../Button.astro';
 import ProfessionalPortrait from '../ProfessionalPortrait.astro';
+import portrait from '../../assets/photos/alice.jpeg';
 import { site, whatsappUrl } from '../../data/site';
 ---
 
@@ -30,7 +31,12 @@ import { site, whatsappUrl } from '../../data/site';
         </div>
 
         <div class="hero__media" data-reveal style="--reveal-delay: 200ms">
-          <ProfessionalPortrait priority />
+          <ProfessionalPortrait
+            src={portrait}
+            alt="Retrato de Alice Lins, psicóloga: sorridente, de cabelos cacheados longos, de colete azul-marinho e camisa branca, com os braços cruzados."
+            position="50% 8%"
+            priority
+          />
         </div>
       </div>
     </div>
