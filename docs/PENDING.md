@@ -21,10 +21,11 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 
 - [x] WhatsApp: `+55 84 99707-1178` (9º dígito acrescentado após o DDD). Editar em `src/data/site.ts`.
 - [x] Instagram oficial: `@psialicelins`.
-- [ ] Cidade e endereço (se houver atendimento presencial).
-- [ ] Dias e horários.
-- [ ] Como funciona o primeiro contato/agendamento e a duração/frequência dos encontros.
-- [ ] Modalidades ativas hoje (presencial e/ou online). Atendimento online exige observar as regras do CFP (incluindo cadastro e-Psi).
+- [x] E-mail: `alicelinspsi@gmail.com`.
+- [x] Atendimento presencial: Espaço Possibilitar (`@espaco_possibilitar`), Tirol Way Office, Natal/RN. Atalho para o Google Maps na seção "Como funciona" (busca por nome/endereço — confirmar se aponta para o local certo; sem coordenadas exatas informadas).
+- [x] Como funciona o primeiro contato e os encontros (textos confirmados na seção "Como funciona").
+- [x] Modalidades: presencial (Espaço Possibilitar) e online (Meet via link enviado pelo WhatsApp). Atendimento online: observar as regras do CFP (incluindo cadastro e-Psi).
+- [ ] Dias e horários fixos (o site diz que são combinados por disponibilidade — não há uma agenda fixa a publicar).
 - [ ] Públicos atendidos hoje.
 - [ ] Áreas de atuação que ela deseja divulgar (luto, sobrecarga, medo, ansiedade **não** foram apresentados como especialidades).
 - [ ] Política de cancelamento (opcional).
@@ -35,7 +36,7 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 - **"Trajetória" → card "Encontros"**: usa o relato dela (crianças, adolescentes, adultos e idosos, presencial e online; luto, sobrecarga, medo, ansiedade) como experiência passada, não como serviço atual.
 - **FAQ**: a resposta sobre a abordagem fenomenológico-existencial foi redigida a partir do discurso dela; a da terapia usa a frase dela ("não busca calar o sofrimento, mas compreender o que ele anuncia").
 - **Aviso de emergência** (FAQ e rodapé): cita CVV 188 e SAMU 192. Aprovar ou ajustar.
-- **Seção "Como funciona" e modalidades**: está em modo rascunho (`showDraftSections: true` em `src/data/site.ts`). Enquanto houver `CONFIRMAR`, publicar com `false` esconde a seção.
+- **Seção "Como funciona" e modalidades**: conteúdo confirmado. `showDraftSections` em `src/data/site.ts` só decide se a seção aparece; hoje está `true`.
 
 ## O que não foi usado do Behance (de propósito)
 

@@ -1,14 +1,9 @@
 ---
 import InfoRow from '../InfoRow.astro';
-import Placeholder from '../Placeholder.astro';
 import SectionHeading from '../SectionHeading.astro';
+import { mapsUrl, site } from '../../data/site';
 ---
 
-<!--
-  RASCUNHO — conteúdo depende da Alice (ver docs/PENDING.md).
-  Só o WhatsApp como canal de primeiro contato está confirmado.
-  Oculta com `showDraftSections: false` em src/data/site.ts.
--->
 <section class="section section--soft how" id="como-funciona" aria-labelledby="como-title">
   <div class="container how__grid">
     <div data-reveal>
@@ -26,20 +21,35 @@ import SectionHeading from '../SectionHeading.astro';
           <p>Uma mensagem pelo WhatsApp já é suficiente para começar.</p>
         </InfoRow>
         <InfoRow tinted index="02" title="Conversa inicial" delay={70}>
-          <p><Placeholder>CONFIRMAR: formato, duração e como o primeiro encontro é organizado</Placeholder></p>
+          <p>
+            Espaço e momento dedicado para conhecer melhor o paciente: ouvir o que ele se sentir mais à vontade
+            para compartilhar em um primeiro momento, o que o trouxe à terapia, o que espera do processo
+            terapêutico e o que mais desejar falar.
+          </p>
         </InfoRow>
         <InfoRow tinted index="03" title="Encontros" delay={140}>
-          <p><Placeholder>CONFIRMAR: frequência e duração dos encontros</Placeholder></p>
+          <p>
+            Sessões semanais de 50 minutos, combinadas no dia e horário adequados a partir da disponibilidade de
+            ambas as partes.
+          </p>
         </InfoRow>
       </ul>
 
       <h3 class="h3 how__sub" data-reveal>Modalidades de atendimento</h3>
       <ul aria-label="Modalidades de atendimento">
         <InfoRow tinted title="Presencial" delay={0}>
-          <p><Placeholder>CONFIRMAR: se atende presencialmente · cidade · endereço</Placeholder></p>
+          <p>
+            Espaço Possibilitar
+            (<a href={site.location.spaceInstagram.url} target="_blank" rel="noopener noreferrer"
+              >{site.location.spaceInstagram.handle}<span class="visually-hidden"> (abre em nova aba)</span></a
+            >), {site.location.address}.
+          </p>
+          <a class="how__maps" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            Ver no Google Maps <span aria-hidden="true">→</span><span class="visually-hidden"> (abre em nova aba)</span>
+          </a>
         </InfoRow>
         <InfoRow tinted title="Online" delay={70}>
-          <p><Placeholder>CONFIRMAR: se atende online · plataforma utilizada</Placeholder></p>
+          <p>Atendimento online via links do Meet, disponibilizados pelo WhatsApp.</p>
         </InfoRow>
       </ul>
     </div>
@@ -58,6 +68,18 @@ import SectionHeading from '../SectionHeading.astro';
   }
   .how__sub {
     margin-top: var(--space-8);
+  }
+  .how__maps {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-underline-offset: 0.3em;
+  }
+  .how__maps:hover {
+    text-decoration-thickness: 2px;
   }
 
   @media (min-width: 64rem) {

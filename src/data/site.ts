@@ -21,11 +21,19 @@ export const site = {
       e164: '5584997071178',
       message: 'Olá, Alice! Vim pelo seu site e gostaria de conversar.',
     },
-    email: 'alicelins@gmail.com',
+    email: 'alicelinspsi@gmail.com',
     instagram: {
       handle: '@psialicelins',
       url: 'https://www.instagram.com/psialicelins',
     },
+  },
+
+  /** Local do atendimento presencial. */
+  location: {
+    space: 'Espaço Possibilitar',
+    spaceInstagram: { handle: '@espaco_possibilitar', url: 'https://www.instagram.com/espaco_possibilitar' },
+    address: 'Tirol Way Office, Natal/RN',
+    mapsQuery: 'Tirol Way Office, Tirol, Natal - RN',
   },
 
   /**
@@ -39,6 +47,8 @@ export const site = {
 export const whatsappUrl = `https://wa.me/${site.contact.whatsapp.e164}?text=${encodeURIComponent(
   site.contact.whatsapp.message,
 )}`;
+
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.location.mapsQuery)}`;
 
 export const nav = [
   { label: 'Sobre', href: '#sobre' },
