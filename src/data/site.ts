@@ -9,6 +9,7 @@ export const site = {
   role: 'Psicóloga',
   crp: 'CRP 17/9333',
   approach: 'Fenomenologia-existencial',
+  audience: 'Crianças, adolescentes, adultos e idosos',
   education: { degree: 'Psicologia', institution: 'UFRN', campus: 'Natal' },
   tagline: 'Psicologia ancorada pela fenomenologia-existencial.',
   description:

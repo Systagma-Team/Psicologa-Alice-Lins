@@ -1,15 +1,16 @@
 ---
 import { site } from '../../data/site';
 
-// Tudo confirmado: nome, formação, abordagem e CRP (client-profile/professional-data.json).
+// Tudo confirmado: formação, abordagem, público (informado pela Alice) e CRP.
 const items = [
   { label: 'Formação', value: `${site.education.degree} pela ${site.education.institution}, campus ${site.education.campus}` },
   { label: 'Abordagem', value: site.approach },
+  { label: 'Público', value: site.audience },
   { label: 'Registro profissional', value: site.crp },
 ];
 ---
 
-<section class="strip" aria-label="Formação, abordagem e registro profissional">
+<section class="strip" aria-label="Formação, abordagem, público atendido e registro profissional">
   <ul class="container strip__list">
     {
       items.map((item, i) => (
@@ -38,12 +39,18 @@ const items = [
   }
   .strip__value {
     font-weight: 450;
+    font-size: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
   }
 
   @media (min-width: 48rem) {
     .strip__list {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-10);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 var(--space-10);
+    }
+  }
+  @media (min-width: 64rem) {
+    .strip__list {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 </style>

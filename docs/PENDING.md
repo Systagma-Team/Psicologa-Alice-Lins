@@ -15,7 +15,7 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 | Fontes oficiais da marca (se existirem) | Fraunces e Figtree são **substitutas**. O logo usa um serif de traço fino e sans-serif espaçada nas versaletes; se ela souber os nomes, aproximamos. |
 | Paleta oficial | `#521A1B` (bordô) foi amostrado do Instagram; os cobres, dos PNGs dos logos. O restante é aproximação. |
 
-> **Foto `alice 2.jpeg`:** mostra um livro de ludoterapia e brinquedos ao fundo, o que pode sugerir atendimento infantil. Confirmar se ela quer essa foto no site enquanto o público atendido não estiver definido.
+> **Foto `alice 2.jpeg`:** mostra um livro de ludoterapia e brinquedos ao fundo. Como o público atendido inclui crianças (confirmado), a foto é coerente com o site.
 
 ## Dados
 
@@ -26,7 +26,7 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 - [x] Como funciona o primeiro contato e os encontros (textos confirmados na seção "Como funciona").
 - [x] Modalidades: presencial (Espaço Possibilitar) e online (Meet via link enviado pelo WhatsApp). Atendimento online: observar as regras do CFP (incluindo cadastro e-Psi).
 - [ ] Dias e horários fixos (o site diz que são combinados por disponibilidade — não há uma agenda fixa a publicar).
-- [ ] Públicos atendidos hoje.
+- [x] Público atendido: crianças, adolescentes, adultos e idosos (faixa "Público" logo abaixo do Hero).
 - [ ] Áreas de atuação que ela deseja divulgar (luto, sobrecarga, medo, ansiedade **não** foram apresentados como especialidades).
 - [ ] Política de cancelamento (opcional).
 - [ ] Domínio (para `site` em `astro.config.mjs`, canonical e sitemap).
