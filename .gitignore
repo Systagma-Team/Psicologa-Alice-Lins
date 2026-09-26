@@ -6,3 +6,6 @@ dist/
 
 # Pranchas do Behance: obra de terceiros, uso apenas como referência local
 references/alice-lins-psychologist-kit/assets/downloaded/
+
+# Saída da bancada de auditoria
+audit-out/

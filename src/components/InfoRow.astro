@@ -14,7 +14,7 @@ const { title, index, tinted = false, delay } = Astro.props;
 ---
 
 <li
-  class:list={['row', { 'row--tinted': tinted }]}
+  class:list={['row', { 'row--tinted': tinted, 'row--no-index': !index }]}
   {...delay !== undefined ? { 'data-reveal': '', style: `--reveal-delay: ${delay}ms` } : {}}
 >
   {index && <span class="row__index" aria-hidden="true">{index}</span>}
@@ -25,12 +25,11 @@ const { title, index, tinted = false, delay } = Astro.props;
 <style>
   .row {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-2) var(--space-8);
     align-items: baseline;
     padding: var(--space-6) var(--space-4);
-    box-shadow: inset 0 -1px 0 var(--color-border);
-    border-radius: var(--radius-md);
+    border-bottom: 1px solid var(--color-border);
     /* Inclui opacity/transform para conviver com a revelação global ([data-reveal]). */
     transition:
       background-color var(--dur-base) var(--ease-out),
@@ -44,29 +43,27 @@ const { title, index, tinted = false, delay } = Astro.props;
   .row--tinted {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    box-shadow: none;
+    border-radius: var(--radius-md);
     margin-bottom: var(--space-3);
-  }
-  .row--tinted:hover {
-    background: var(--color-primary-soft);
   }
   .row__index {
     font-family: var(--font-display);
     font-size: 1.25rem;
-    color: var(--color-accent);
+    /* Texto pequeno: usa o tom escuro do acento (≥4,5:1), não o laranja decorativo. */
+    color: var(--color-accent-text);
   }
   .row__title {
     font-weight: 450;
   }
 
   @media (min-width: 48rem) {
+    /* Mesma grade com ou sem numeral: as descrições alinham entre listas. */
     .row {
       grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.35fr);
       padding-inline: var(--space-6);
     }
-    /* Sem numeral: duas colunas */
-    .row:not(:has(.row__index)) {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    .row--no-index .row__title {
+      grid-column: 1 / 3;
     }
   }
 </style>

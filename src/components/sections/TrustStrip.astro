@@ -1,16 +1,16 @@
 ---
 import { site } from '../../data/site';
 
-// Tudo confirmado: formação, abordagem, público (informado pela Alice) e CRP.
+// Tudo confirmado: formação, abordagem, formato das sessões (informado pela Alice) e CRP.
 const items = [
   { label: 'Formação', value: `${site.education.degree} pela ${site.education.institution}, campus ${site.education.campus}` },
   { label: 'Abordagem', value: site.approach },
-  { label: 'Público', value: site.audience },
+  { label: 'Sessões', value: 'Semanais, de 50 minutos' },
   { label: 'Registro profissional', value: site.crp },
 ];
 ---
 
-<section class="strip" aria-label="Formação, abordagem, público atendido e registro profissional">
+<section class="strip" aria-label="Formação, abordagem, formato das sessões e registro profissional">
   <ul class="container strip__list">
     {
       items.map((item, i) => (
@@ -29,6 +29,7 @@ const items = [
   }
   .strip__list {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
   .strip__item {

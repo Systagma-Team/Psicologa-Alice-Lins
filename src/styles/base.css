@@ -64,6 +64,7 @@ a {
   font-weight: 450;
   text-wrap: balance;
   font-optical-sizing: auto;
+  overflow-wrap: anywhere;
 }
 
 .display {
@@ -95,6 +96,30 @@ a {
   font-size: var(--text-lead);
   line-height: 1.65;
   max-width: var(--reading-max);
+}
+
+/* Texto ampliado pelo usuário: palavra ou e-mail longo quebra em vez de alargar a coluna. */
+p,
+li,
+summary,
+blockquote,
+a {
+  overflow-wrap: break-word;
+}
+
+/* Colunas únicas de conteúdo: nunca crescem além do container por conteúdo largo. */
+.hero__copy,
+.about__copy,
+.symbol__copy,
+.approach__head,
+.how__lists,
+.faq__list,
+.heading,
+.step,
+.strip__item,
+.cta__inner,
+.footer__contact ul {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .prose > * + * {
@@ -203,6 +228,27 @@ a {
   transform: none;
 }
 
+/* Entrada do Hero: puro CSS. Não depende de JS/IntersectionObserver, então o conteúdo
+   acima da dobra aparece (e conta para o LCP) sem esperar scripts. */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+[data-enter] {
+  animation: enter 600ms var(--ease-out) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media print {
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -216,5 +262,10 @@ a {
   .js [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+
+  /* Sem movimento: aparece de imediato, sem esperar o atraso da animação. */
+  [data-enter] {
+    animation: none;
   }
 }

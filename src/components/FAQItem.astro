@@ -7,7 +7,7 @@ const { question } = Astro.props;
 
 <details class="faq">
   <summary class="faq__q">
-    <span>{question}</span>
+    <span class="faq__text">{question}</span>
     <span class="faq__icon" aria-hidden="true"></span>
   </summary>
   <div class="faq__a prose muted"><slot /></div>
@@ -35,6 +35,9 @@ const { question } = Astro.props;
   }
   .faq__q::-webkit-details-marker {
     display: none;
+  }
+  .faq__text {
+    min-width: 0; /* permite ao texto quebrar em vez de empurrar o ícone com fontes muito grandes */
   }
   .faq__icon {
     flex: none;

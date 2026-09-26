@@ -7,8 +7,8 @@ import { nav, site, whatsappUrl } from '../data/site';
 
 <header class="site-header" data-header>
   <div class="container--wide header__inner">
-    <a class="brand" href="#inicio" aria-label={`${site.name}, ${site.role} — início da página`}>
-      <Image src={logo} alt="" width={420} class="brand__logo" loading="eager" />
+    <a class="brand" href="/#inicio" aria-label={`${site.name}, ${site.role} — início da página`}>
+      <Image src={logo} alt="" width={360} class="brand__logo" loading="eager" />
     </a>
 
     <nav class="nav" id="menu" aria-label="Principal" data-nav>
@@ -19,7 +19,7 @@ import { nav, site, whatsappUrl } from '../data/site';
 
     <div class="header__actions">
       <span class="header__cta">
-        <Button href={whatsappUrl} variant="secondary" external ariaLabel="Vamos conversar? Abrir conversa no WhatsApp">
+        <Button href={whatsappUrl} variant="secondary" external ariaLabel="Vamos conversar? Abrir conversa no WhatsApp (abre em nova aba)">
           <span class="cta-long">Vamos conversar?</span>
           <span class="cta-short" aria-hidden="true">Conversar</span>
         </Button>
@@ -43,7 +43,9 @@ import { nav, site, whatsappUrl } from '../data/site';
     position: sticky;
     top: 0;
     z-index: 50;
+    background: var(--color-bg);
     background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid transparent;
     transition: border-color var(--dur-base) var(--ease-out);
@@ -55,11 +57,13 @@ import { nav, site, whatsappUrl } from '../data/site';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-4);
+    gap: var(--space-1) var(--space-2);
     min-height: var(--header-h);
+    flex-wrap: wrap; /* só quebra se o usuário aumentar muito o texto */
   }
 
   .brand {
+    flex: none;
     display: grid;
     align-content: center;
     min-height: var(--touch-min);
@@ -70,13 +74,19 @@ import { nav, site, whatsappUrl } from '../data/site';
   .brand__logo {
     display: block;
     width: auto;
-    height: 2.6rem;
+    height: 2rem;
   }
 
   .header__actions {
+    flex: none;
     display: flex;
     align-items: center;
     gap: var(--space-2);
+  }
+  /* Telas muito estreitas: botão compacto para caber logo + CTA + menu em 320px */
+  .header__cta :global(.btn) {
+    padding-inline: var(--space-3);
+    font-size: 0.875rem;
   }
   .cta-short {
     display: inline;
@@ -86,7 +96,7 @@ import { nav, site, whatsappUrl } from '../data/site';
   }
 
   .menu-toggle {
-    display: grid;
+    display: none;
     place-items: center;
     width: var(--touch-min);
     height: var(--touch-min);
@@ -95,6 +105,9 @@ import { nav, site, whatsappUrl } from '../data/site';
     border-radius: 50%;
     background: transparent;
     cursor: pointer;
+  }
+  :global(.js) .menu-toggle {
+    display: grid;
   }
   .menu-toggle__bars,
   .menu-toggle__bars::before {
@@ -133,6 +146,10 @@ import { nav, site, whatsappUrl } from '../data/site';
     padding: var(--space-4) var(--page-gutter) var(--space-8);
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
+    max-height: calc(100vh - var(--header-h));
+    max-height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    overscroll-behavior: contain;
     display: none;
   }
   :global(.js) .nav[data-open='true'] {
@@ -161,6 +178,36 @@ import { nav, site, whatsappUrl } from '../data/site';
     text-underline-offset: 0.35em;
   }
 
+  @media (max-width: 63.99rem) {
+    :global(html:not(.js)) .header__inner {
+      flex-wrap: wrap;
+      padding-block: var(--space-2);
+    }
+    :global(html:not(.js)) .nav {
+      order: 3;
+      flex-basis: 100%;
+    }
+  }
+
+  @media (min-width: 22.5rem) {
+    .brand__logo {
+      height: 2.25rem;
+    }
+    .header__cta :global(.btn) {
+      padding-inline: var(--space-4);
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (min-width: 26rem) {
+    .header__inner {
+      gap: var(--space-4);
+    }
+    .brand__logo {
+      height: 2.5rem;
+    }
+  }
+
   @media (min-width: 30rem) {
     .cta-long {
       display: inline;
@@ -174,11 +221,13 @@ import { nav, site, whatsappUrl } from '../data/site';
     .brand__logo {
       height: 3rem;
     }
-    .menu-toggle {
+    :global(.js) .menu-toggle {
       display: none;
     }
     :global(.js) .nav {
       position: static;
+      max-height: none;
+      overflow: visible;
       display: block;
       padding: 0;
       background: none;

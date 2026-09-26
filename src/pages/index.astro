@@ -13,11 +13,34 @@ import { site } from '../data/site';
 ---
 
 <BaseLayout>
+  <script
+    slot="head"
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: `${site.name} — ${site.role}`,
+      description: site.description,
+      telephone: `+${site.contact.whatsapp.e164}`,
+      email: site.contact.email,
+      sameAs: [site.contact.instagram.url],
+      address: { '@type': 'PostalAddress', addressLocality: 'Natal', addressRegion: 'RN', addressCountry: 'BR' },
+      areaServed: { '@type': 'City', name: 'Natal' },
+      founder: {
+        '@type': 'Person',
+        name: site.fullName,
+        jobTitle: site.role,
+        identifier: site.crp,
+        alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidade Federal do Rio Grande do Norte (UFRN)' },
+      },
+    })}
+  />
   <Hero />
   <TrustStrip />
   <About />
-  <Approach />
   {site.showDraftSections && <HowItWorks />}
+  <Approach />
   <Trajectory />
   <Symbol />
   <Faq />
