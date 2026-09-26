@@ -1,12 +1,13 @@
 ---
 import FAQItem from '../FAQItem.astro';
 import SectionHeading from '../SectionHeading.astro';
-import { site, whatsappUrl } from '../../data/site';
+import { mapsUrl, site, whatsappUrl } from '../../data/site';
 
 /*
-  Só perguntas respondíveis com dados confirmados ou com o discurso da própria Alice.
-  Valores, duração, frequência e modalidades ficam de fora até a confirmação (docs/PENDING.md).
-  A resposta 4 cita CVV 188 e SAMU 192 (serviços públicos) — aguardando aprovação da Alice.
+  Só respostas apoiadas em dados confirmados pela Alice, no discurso dela ou em dever ético geral da profissão.
+  Ordem = ordem das dúvidas de quem nunca fez terapia: onde/como → como é o começo → abordagem → expectativa → sigilo → contato.
+  Valores, convênio/reembolso e cancelamento ficam de fora até a Alice informar (docs/PENDING.md).
+  Sigilo: texto geral do Código de Ética — aguardando aprovação da Alice. CVV 188 / SAMU 192: idem.
 */
 ---
 
@@ -17,6 +18,22 @@ import { site, whatsappUrl } from '../../data/site';
     </div>
 
     <div class="faq__list" data-reveal style="--reveal-delay: 100ms">
+      <FAQItem question="Você atende presencialmente ou online?">
+        <p>
+          Os dois. O atendimento presencial é no {site.location.space}, no {site.location.address}
+          (<a href={mapsUrl} target="_blank" rel="noopener noreferrer">ver no Google Maps<span class="visually-hidden"> (abre em nova aba)</span></a>).
+          O atendimento online é feito por link do Meet, enviado pelo WhatsApp.
+        </p>
+      </FAQItem>
+
+      <FAQItem question="Como é a primeira conversa?">
+        <p>
+          É um espaço e um momento dedicados a conhecer você: ouvir o que você se sentir mais à vontade para
+          compartilhar em um primeiro momento, o que o trouxe à terapia, o que espera do processo terapêutico e o
+          que mais desejar falar.
+        </p>
+      </FAQItem>
+
       <FAQItem question="O que é a abordagem fenomenológico-existencial?">
         <p>
           É uma perspectiva que parte da experiência vivida de cada pessoa, sem reduzi-la a rótulos ou respostas
@@ -32,12 +49,19 @@ import { site, whatsappUrl } from '../../data/site';
         </p>
       </FAQItem>
 
+      <FAQItem question="As conversas são sigilosas?">
+        <p>
+          O sigilo é um dever ético da profissão, previsto no Código de Ética Profissional do Psicólogo. O que é
+          dito no atendimento é confidencial, com as exceções que o próprio Código estabelece.
+        </p>
+      </FAQItem>
+
       <FAQItem question="Como faço para entrar em contato?">
         <p>
-          O caminho mais direto é o <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+          O caminho mais direto é o <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp<span class="visually-hidden"> (abre em nova aba)</span></a>.
           Você também pode escrever para
           <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> ou pelo
-          <a href={site.contact.instagram.url} target="_blank" rel="noopener noreferrer">Instagram {site.contact.instagram.handle}</a>.
+          <a href={site.contact.instagram.url} target="_blank" rel="noopener noreferrer">Instagram {site.contact.instagram.handle}<span class="visually-hidden"> (abre em nova aba)</span></a>.
         </p>
       </FAQItem>
 
@@ -54,6 +78,7 @@ import { site, whatsappUrl } from '../../data/site';
 <style>
   .faq__grid {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-10);
   }
   .faq__list {

@@ -12,7 +12,7 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title = `${site.name} | ${site.role} · ${site.crp}`, description = site.description } = Astro.props;
+const { title = site.title, description = site.description } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,10 +23,13 @@ const { title = `${site.name} | ${site.role} · ${site.crp}`, description = site
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#521a1b" />
+    <meta name="color-scheme" content="light" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <slot name="head" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script is:inline>
@@ -81,6 +84,61 @@ const { title = `${site.name} | ${site.role} · ${site.crp}`, description = site
         items.forEach((el) => io.observe(el));
       } else {
         items.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+
+    <script>
+      /*
+        Medição de conversão (sem cookies, sem PII, sem requisições externas).
+        Publica eventos em window.dataLayer (Google Tag Manager/GA4) e, se existir, em window.plausible.
+        Enquanto nenhuma ferramenta for instalada, nada sai do navegador. Plano em docs/COMMERCIAL.md.
+      */
+      type Params = Record<string, string>;
+      const w = window as unknown as { dataLayer?: unknown[]; plausible?: (name: string, opts?: { props: Params }) => void };
+      const track = (name: string, params: Params) => {
+        (w.dataLayer = w.dataLayer || []).push({ event: name, ...params });
+        w.plausible?.(name, { props: params });
+      };
+
+      const channelOf = (href: string) => {
+        if (href.startsWith('mailto:')) return 'email';
+        if (href.includes('wa.me/')) return 'whatsapp';
+        if (href.includes('instagram.com/espaco_possibilitar')) return 'instagram_espaco';
+        if (href.includes('instagram.com/')) return 'instagram';
+        if (href.includes('google.com/maps')) return 'google_maps';
+        return null;
+      };
+      const placeOf = (el: Element) =>
+        el.closest('[data-header]') ? 'header' : el.closest('footer') ? 'footer' : (el.closest('section[id]')?.id ?? 'pagina');
+
+      // Cliques nos canais de contato (WhatsApp é o principal) e no mapa
+      document.addEventListener('click', (e) => {
+        const a = (e.target as Element).closest('a[href]');
+        const channel = a && channelOf(a.getAttribute('href') || '');
+        if (a && channel) track('contact_click', { channel, location: placeOf(a) });
+      });
+
+      // Dúvidas que despertam interesse
+      document.querySelectorAll<HTMLDetailsElement>('details.faq').forEach((d) =>
+        d.addEventListener('toggle', () => {
+          if (d.open) track('faq_open', { question: (d.querySelector('summary')?.textContent || '').trim().slice(0, 80) });
+        }),
+      );
+
+      // Chegada às seções de decisão (uma vez cada)
+      if ('IntersectionObserver' in window) {
+        const seen = new IntersectionObserver(
+          (entries) => {
+            for (const en of entries) {
+              if (en.isIntersecting) {
+                track('section_view', { section: en.target.id });
+                seen.unobserve(en.target);
+              }
+            }
+          },
+          { threshold: 0.4 },
+        );
+        document.querySelectorAll('#atendimento, #duvidas, #contato').forEach((s) => seen.observe(s));
       }
     </script>
   </body>

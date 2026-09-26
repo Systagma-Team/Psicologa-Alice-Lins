@@ -38,6 +38,23 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 - **Aviso de emergência** (FAQ e rodapé): cita CVV 188 e SAMU 192. Aprovar ou ajustar.
 - **Seção "Como funciona" e modalidades**: conteúdo confirmado. `showDraftSections` em `src/data/site.ts` só decide se a seção aparece; hoje está `true`.
 
+## Textos e decisões comerciais para a Alice aprovar (Fase 2)
+
+Detalhes e justificativa em [COMMERCIAL.md](COMMERCIAL.md).
+
+- [ ] **Hero:** "Alice Lins · Natal/RN", "Presencial em Natal/RN e online" e "Crianças, adolescentes, adultos e idosos" (o público subiu da faixa para o Hero; a faixa agora mostra "Sessões: semanais, de 50 minutos").
+- [ ] **FAQ novo:** "Você atende presencialmente ou online?", "Como é a primeira conversa?" (texto dela em 2ª pessoa) e **"As conversas são sigilosas?"** (texto geral do Código de Ética — aprovar redação).
+- [ ] **Ordem da página e menu:** "Atendimento" logo após o Sobre; "Símbolo" saiu do menu (a seção continua na página).
+- [ ] **Título de busca:** "Alice Lins | Psicóloga clínica em Natal/RN (CRP 17/9333)".
+- [ ] Conferir com o **CRP-17** que a divulgação está de acordo (Nota Técnica CFP 1/2022): sem depoimentos, sem desconto/gratuidade, sem promessa de resultado.
+
+## Informações que faltam e mais aumentariam a conversão
+
+1. Valor da sessão e formas de pagamento · 2. Convênio/reembolso · 3. Política de cancelamento/remarcação
+4. Horários e tempo de resposta · 5. Demandas que deseja receber · 6. Como é o atendimento infantil/adolescente e se atende casais/famílias
+7. Títulos (pós, cursos, supervisão) · 8. Cadastro e-Psi e link de consulta pública do CRP · 9. Foto do espaço de atendimento
+10. Ferramenta de medição escolhida e política de privacidade (LGPD) · 11. URL da Systagma para o crédito virar link
+
 ## O que não foi usado do Behance (de propósito)
 
 Estatísticas, depoimentos e nota média, contagem de clientes, "Meet our team", blog, formulário de agendamento e fotos de banco. O contato é feito por WhatsApp, e-mail e Instagram, sem formulário.

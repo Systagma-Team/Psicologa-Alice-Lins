@@ -50,6 +50,7 @@ import { site } from '../../data/site';
 <style>
   .about__grid {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-12);
     align-items: center;
   }
@@ -60,6 +61,10 @@ import { site } from '../../data/site';
   }
   .about__media {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    /* Em tablet (coluna única) a foto não precisa ocupar a largura toda. */
+    width: min(100%, 30rem);
+    justify-self: center;
   }
   /* Cartão sobreposto à base da foto */
   .about__quote {
@@ -96,6 +101,10 @@ import { site } from '../../data/site';
   }
 
   @media (min-width: 64rem) {
+    .about__media {
+      width: 100%;
+      justify-self: stretch;
+    }
     .about__grid {
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
       gap: var(--space-20);

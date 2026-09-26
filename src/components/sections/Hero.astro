@@ -9,32 +9,42 @@ import { site, whatsappUrl } from '../../data/site';
   <div class="container--wide">
     <div class="hero__panel on-dark">
       <!-- Filete editorial das peças da Alice: CRP à esquerda, perfil à direita -->
-      <div class="hero__rule" aria-hidden="true">
+      <div class="hero__rule">
         <span>{site.crp}</span>
-        <span>{site.contact.instagram.handle}</span>
+        <a href={site.contact.instagram.url} target="_blank" rel="noopener noreferrer">
+          {site.contact.instagram.handle}<span class="visually-hidden"> (abre em nova aba)</span>
+        </a>
       </div>
 
       <div class="hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow" data-reveal>{site.name}</p>
-          <h1 class="display" id="hero-title" data-reveal style="--reveal-delay: 80ms">
+          <p class="eyebrow" data-enter>{site.name} · Natal/RN</p>
+          <h1 class="display" id="hero-title" data-enter style="--reveal-delay: 80ms">
             Psicóloga <em>clínica.</em>
           </h1>
-          <p class="lead muted" data-reveal style="--reveal-delay: 160ms">
+          <p class="lead muted" data-enter style="--reveal-delay: 160ms">
             Um espaço de escuta, presença e acolhimento para compreender a própria experiência, com respeito à
             singularidade de cada história.
           </p>
-          <div class="hero__actions" data-reveal style="--reveal-delay: 240ms">
+          <ul class="hero__facts" aria-label="Atendimento em resumo" data-enter style="--reveal-delay: 200ms">
+            <li>Presencial em Natal/RN e online</li>
+            <li>{site.audience}</li>
+          </ul>
+          <div class="hero__actions" data-enter style="--reveal-delay: 260ms">
             <Button href={whatsappUrl} variant="light" external arrow>Vamos conversar?</Button>
             <Button href="#abordagem" variant="link">Conhecer minha abordagem</Button>
           </div>
+          <p class="hero__note muted" data-enter style="--reveal-delay: 300ms">
+            Uma mensagem pelo WhatsApp já é suficiente para começar.
+          </p>
         </div>
 
-        <div class="hero__media" data-reveal style="--reveal-delay: 200ms">
+        <div class="hero__media" data-enter style="--reveal-delay: 120ms">
           <ProfessionalPortrait
             src={portrait}
             alt="Retrato de Alice Lins, psicóloga: sorridente, de cabelos cacheados longos, de colete azul-marinho e camisa branca, com os braços cruzados."
             position="50% 8%"
+            sizes="(min-width: 64rem) 416px, (min-width: 48rem) 352px, calc((100vw - 5.5rem) * 0.78)"
             priority
           />
         </div>
@@ -58,6 +68,7 @@ import { site, whatsappUrl } from '../../data/site';
   }
   .hero__rule {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: var(--space-4);
     padding-bottom: var(--space-3);
@@ -66,8 +77,21 @@ import { site, whatsappUrl } from '../../data/site';
     letter-spacing: 0.04em;
     color: var(--color-on-primary-muted);
   }
+  .hero__rule a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--touch-min);
+    margin-block: calc(var(--space-3) * -1); /* alvo de 44px sem aumentar a altura do filete */
+    text-decoration: none;
+  }
+  .hero__rule a:hover {
+    color: var(--color-on-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
   .hero__grid {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-10);
     padding-top: var(--space-10);
   }
@@ -76,6 +100,31 @@ import { site, whatsappUrl } from '../../data/site';
     gap: var(--space-5);
     align-content: center;
     justify-items: start;
+  }
+  .hero__facts {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+    font-weight: 500;
+    line-height: 1.45;
+  }
+  .hero__facts li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+  /* Fio de cobre: marcador discreto, sem função de ícone */
+  .hero__facts li::before {
+    content: '';
+    flex: none;
+    width: 1.1rem;
+    height: 1px;
+    background: var(--color-on-primary-accent);
+    transform: translateY(-0.3em);
+  }
+  .hero__note {
+    font-size: var(--text-small);
+    margin-top: calc(var(--space-2) * -1);
   }
   .hero__actions {
     display: flex;

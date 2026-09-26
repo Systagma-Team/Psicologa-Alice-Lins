@@ -4,11 +4,11 @@ import SectionHeading from '../SectionHeading.astro';
 import { mapsUrl, site } from '../../data/site';
 ---
 
-<section class="section section--soft how" id="como-funciona" aria-labelledby="como-title">
+<section class="section section--soft how" id="atendimento" aria-labelledby="como-title">
   <div class="container how__grid">
     <div data-reveal>
       <SectionHeading
-        eyebrow="Como funciona"
+        eyebrow="Atendimento"
         title="Um começo <em>sem pressa.</em>"
         id="como-title"
         lead="O primeiro passo é uma conversa. O restante do caminho se desenha a partir dela."
@@ -59,6 +59,7 @@ import { mapsUrl, site } from '../../data/site';
 <style>
   .how__grid {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-10);
   }
   .how__lists {
@@ -73,7 +74,8 @@ import { mapsUrl, site } from '../../data/site';
     display: inline-flex;
     align-items: center;
     gap: var(--space-1);
-    margin-top: var(--space-3);
+    min-height: var(--touch-min);
+    margin-top: var(--space-1);
     font-weight: 600;
     color: var(--color-primary);
     text-underline-offset: 0.3em;
@@ -86,6 +88,12 @@ import { mapsUrl, site } from '../../data/site';
     .how__grid {
       grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
       gap: var(--space-16);
+      align-items: start;
+    }
+    /* A lista à direita é bem mais alta que o título: ele acompanha a rolagem. */
+    .how__grid > :first-child {
+      position: sticky;
+      top: calc(var(--header-h) + var(--space-8));
     }
   }
 </style>

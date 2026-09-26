@@ -12,8 +12,11 @@ export const site = {
   audience: 'Crianças, adolescentes, adultos e idosos',
   education: { degree: 'Psicologia', institution: 'UFRN', campus: 'Natal' },
   tagline: 'Psicologia ancorada pela fenomenologia-existencial.',
+  // Título e descrição de busca: cidade, modalidade e público (dados confirmados) — é o que
+  // quem procura "psicóloga em Natal" precisa ver no resultado. Título ≤ 60, descrição ≤ 160.
+  title: 'Alice Lins | Psicóloga clínica em Natal/RN (CRP 17/9333)',
   description:
-    'Alice Lins, psicóloga (CRP 17/9333), formada pela UFRN. Um espaço de escuta, presença e acolhimento a partir da fenomenologia-existencial.',
+    'Psicóloga clínica em Natal/RN, com atendimento presencial e online para crianças, adolescentes, adultos e idosos. Fenomenologia-existencial. CRP 17/9333.',
 
   contact: {
     whatsapp: {
@@ -51,10 +54,11 @@ export const whatsappUrl = `https://wa.me/${site.contact.whatsapp.e164}?text=${e
 
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.location.mapsQuery)}`;
 
+// Ordem = a do caminho de decisão de um paciente: quem é → como funciona o atendimento → abordagem → dúvidas.
 export const nav = [
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Abordagem', href: '#abordagem' },
-  { label: 'Trajetória', href: '#trajetoria' },
-  { label: 'Símbolo', href: '#simbolo' },
-  { label: 'Dúvidas', href: '#duvidas' },
+  { label: 'Sobre', href: '/#sobre' },
+  { label: 'Atendimento', href: '/#atendimento' },
+  { label: 'Abordagem', href: '/#abordagem' },
+  { label: 'Trajetória', href: '/#trajetoria' },
+  { label: 'Dúvidas', href: '/#duvidas' },
 ] as const;

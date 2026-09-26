@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout title="Página não encontrada | Alice Lins">
+  <meta slot="head" name="robots" content="noindex" />
+  <section class="section notfound" aria-labelledby="notfound-title">
+    <div class="container notfound__inner">
+      <p class="eyebrow">Erro 404</p>
+      <h1 class="display" id="notfound-title">Página não <em>encontrada.</em></h1>
+      <p class="lead muted">O endereço que você tentou abrir não existe ou mudou de lugar.</p>
+      <Button href="/" arrow>Voltar ao início</Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    min-height: 60vh;
+    display: grid;
+    align-items: center;
+  }
+  .notfound__inner {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-5);
+  }
+</style>

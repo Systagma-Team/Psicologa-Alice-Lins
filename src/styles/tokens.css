@@ -43,8 +43,10 @@
   --color-border: #dccbc0;
   --color-focus: var(--alice-burgundy);
 
-  /* Laranja-pôr-do-sol: ~3,9:1 sobre o creme. Só para detalhes e texto grande. */
+  /* Laranja-pôr-do-sol: ~3,9:1 sobre o creme. Só para detalhes e texto grande (≥24px). */
   --color-accent: var(--alice-sunset);
+  /* Mesmo matiz, mais escuro: ≥4,5:1 sobre creme, cartão e hover. Para texto pequeno. */
+  --color-accent-text: #994c25;
 
   /* Superfícies escuras (bordô) */
   --color-on-primary: var(--alice-paper);
@@ -101,7 +103,7 @@
   /* ---------- Layout ---------- */
   --content-max: 1100px;
   --content-wide: 1240px;
-  --reading-max: 44rem;
+  --reading-max: 40rem;
   --page-gutter: clamp(1.25rem, 4vw, 4rem);
   --header-h: 4.5rem;
 
