@@ -23,7 +23,7 @@ const { email, instagram } = site.contact;
     <div class="cta__alt muted">
       <p>Ou, se preferir:</p>
       <ul>
-        <li><a href={`mailto:${email}`}>{email}</a></li>
+        <li><!--email_off--><a href={`mailto:${email}`}>{email}</a><!--/email_off--></li>
         <li><a href={instagram.url} target="_blank" rel="noopener noreferrer">Instagram {instagram.handle}<span class="visually-hidden"> (abre em nova aba)</span></a></li>
       </ul>
     </div>

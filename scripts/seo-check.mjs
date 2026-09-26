@@ -96,7 +96,7 @@ const pv = await get('/privacidade/');
 add('/privacidade/ 200 e noindex', pv.status === 200 && /noindex/i.test(pv.text), `HTTP ${pv.status}`);
 
 // links internos
-const hrefs = [...new Set([...html.matchAll(/href="(\/[^"#]*)(?:#[^"]*)?"/g)].map((m) => m[1]))].filter((p) => !p.startsWith('/_astro') && !p.startsWith('/img') && !/\.(png|jpg|svg|ico)$/.test(p));
+const hrefs = [...new Set([...html.matchAll(/href="(\/[^"#]*)(?:#[^"]*)?"/g)].map((m) => m[1]))].filter((p) => !p.startsWith('/_astro') && !p.startsWith('/img') && !p.startsWith('/cdn-cgi/') && !/\.(png|jpg|svg|ico)$/.test(p));
 for (const p of hrefs) {
   const r = await fetch(base + p, { redirect: 'manual' }).catch(() => null);
   add(`Link interno ${p} responde 200`, r?.status === 200, `HTTP ${r?.status}`);
