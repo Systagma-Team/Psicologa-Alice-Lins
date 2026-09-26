@@ -11,8 +11,12 @@ import { site } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  /** Páginas utilitárias (404, privacidade): fora do índice e sem canonical. */
+  noindex?: boolean;
 }
-const { title = site.title, description = site.description } = Astro.props;
+const { title = site.title, description = site.description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/img/og-alice-lins.jpg', Astro.site).href;
 ---
 
 <!doctype html>
@@ -27,10 +31,22 @@ const { title = site.title, description = site.description } = Astro.props;
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content="pt_BR" />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alice Lins, psicóloga: logotipo da marca e retrato profissional" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <slot name="head" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <!-- Google: quadrado e múltiplo de 48 px; URLs estáveis e rastreáveis -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script is:inline>
       document.documentElement.classList.add('js');

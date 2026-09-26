@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import { site } from '../data/site';
+
+/*
+  Política de privacidade — descreve o que o site REALMENTE faz (verificado: sem cookies, sem formulários,
+  sem requisições a terceiros para estatísticas). Se uma ferramenta de medição for instalada, atualizar aqui
+  e pedir consentimento quando necessário. Recomenda-se revisão da Alice (e, se possível, jurídica).
+*/
+---
+
+<BaseLayout title="Política de privacidade | Alice Lins" description="Como este site trata dados pessoais: sem cookies, sem formulários e sem estatísticas de terceiros." noindex>
+  <section class="section" aria-labelledby="privacidade-title">
+    <div class="container legal">
+      <p class="eyebrow">Privacidade</p>
+      <h1 class="h2" id="privacidade-title">Política de <em>privacidade</em></h1>
+      <p class="muted">Última atualização: setembro de 2026.</p>
+
+      <div class="prose">
+        <h2 class="h3">Em resumo</h2>
+        <p>
+          Este site é informativo. Ele <strong>não tem formulários, não cria contas, não usa cookies e não
+          envia estatísticas de uso para serviços externos</strong>. As fontes e imagens são servidas pelo próprio
+          site.
+        </p>
+
+        <h2 class="h3">Quando você entra em contato</h2>
+        <p>
+          O contato acontece por canais externos: WhatsApp, e-mail ou Instagram. Ao usar um deles, os dados que
+          você enviar (como nome, telefone e mensagem) passam a ser tratados também pelo serviço escolhido, conforme
+          a política dele. {site.name} usa essas informações apenas para responder ao seu contato e, se o
+          atendimento começar, para o acompanhamento profissional, sempre sob sigilo, dever ético previsto no
+          Código de Ética Profissional do Psicólogo.
+        </p>
+
+        <h2 class="h3">Dados técnicos de acesso</h2>
+        <p>
+          Os serviços que hospedam e entregam o site (Netlify e Cloudflare) podem registrar dados técnicos de
+          acesso, como endereço IP, navegador e data e hora, para operar e proteger o site. Esses registros não são
+          usados por {site.name} para identificar visitantes.
+        </p>
+
+        <h2 class="h3">Estatísticas e cookies</h2>
+        <p>
+          No momento, nenhuma ferramenta de estatísticas ou de publicidade está instalada. Se isso mudar, esta
+          página será atualizada e, quando necessário, seu consentimento será solicitado antes de qualquer coleta.
+        </p>
+
+        <h2 class="h3">Seus direitos</h2>
+        <p>
+          Nos termos da Lei Geral de Proteção de Dados (LGPD), você pode pedir acesso, correção ou eliminação dos
+          dados que tenha enviado. Escreva para <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>.
+        </p>
+
+        <h2 class="h3">Responsável</h2>
+        <p>{site.fullName} · {site.role} · {site.crp} · Natal/RN.</p>
+      </div>
+
+      <Button href="/" variant="secondary" arrow>Voltar ao início</Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: var(--space-5);
+    max-width: 48rem;
+  }
+  .legal .prose h2 {
+    margin-top: var(--space-8);
+  }
+  .legal .prose a {
+    color: var(--color-primary);
+    text-underline-offset: 0.2em;
+  }
+</style>

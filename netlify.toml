@@ -5,6 +5,13 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# /index.html e / são o mesmo documento: 301 para a URL canônica (evita duplicata indexável)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Cache longo para arquivos com hash (JS/CSS/fontes/imagens otimizadas)
 [[headers]]
   for = "/_astro/*"
@@ -16,3 +23,5 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options = "SAMEORIGIN"

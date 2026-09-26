@@ -45,7 +45,10 @@ const { whatsapp, email, instagram } = site.contact;
   </div>
 
   <div class="container footer__legal">
-    <p>© {year} {site.fullName}. Todos os direitos reservados.</p>
+    <p>
+      © {year} {site.fullName}. Todos os direitos reservados. ·
+      <a class="footer__privacy" href="/privacidade/">Política de privacidade</a>
+    </p>
     <p>
       Este site é informativo e não é um canal de atendimento de emergência. Em situação de crise, procure o CVV
       (188) ou o SAMU (192).
@@ -109,6 +112,13 @@ const { whatsapp, email, instagram } = site.contact;
     display: inline-flex;
     align-items: center;
     min-height: var(--touch-min);
+    text-underline-offset: 0.3em;
+  }
+  .footer__privacy {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--touch-min);
+    color: var(--color-on-primary);
     text-underline-offset: 0.3em;
   }
   .footer__legal {

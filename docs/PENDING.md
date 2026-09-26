@@ -38,6 +38,15 @@ Nada abaixo foi inventado: cada item aguarda confirmação ou arquivo da Alice.
 - **Aviso de emergência** (FAQ e rodapé): cita CVV 188 e SAMU 192. Aprovar ou ajustar.
 - **Seção "Como funciona" e modalidades**: conteúdo confirmado. `showDraftSections` em `src/data/site.ts` só decide se a seção aparece; hoje está `true`.
 
+## ⚠️ Identidade digital: conferir com urgência (SEO local)
+
+Detalhes em [SEO.md](SEO.md).
+
+- [ ] **@alicelinspsi é outra profissional** (perfil "Alice Lins | Psicóloga", 539 seguidores, ligada ao CRP 02). O perfil da Alice é **@psialicelins**. As artes dela mostram "@alicelinspsi" no cabeçalho: corrigir para não levar seguidores à outra pessoa.
+- [ ] **E-mail alicelinspsi@gmail.com**: confirmar que é da Alice (a mesma sequência de letras identifica a homônima). Se não for, mensagens de pacientes podem chegar à pessoa errada.
+- [ ] O nome "Alice Lins" tem **homônimas** nos resultados do Google. Usar sempre nome completo + CRP + Natal/RN nos perfis.
+- [ ] Criar e alinhar o **Google Meu Negócio** (nome completo "Alice Lins Mendes Barreto — Psicóloga").
+
 ## Textos e decisões comerciais para a Alice aprovar (Fase 2)
 
 Detalhes e justificativa em [COMMERCIAL.md](COMMERCIAL.md).

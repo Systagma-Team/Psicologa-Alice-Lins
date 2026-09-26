@@ -10,32 +10,59 @@ import Symbol from '../components/sections/Symbol.astro';
 import Faq from '../components/sections/Faq.astro';
 import ContactCTA from '../components/sections/ContactCTA.astro';
 import { site } from '../data/site';
----
 
-<BaseLayout>
-  <script
-    slot="head"
-    is:inline
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'ProfessionalService',
+// Dados estruturados = só o que está visível na página. Sem priceRange (valor não informado) e sem
+// reviews/rating (vedados pelo CFP). Entidades ligadas por @id: site → consultório → pessoa.
+const base = Astro.site!.href.replace(/\/$/, '');
+const abs = (path: string) => `${base}${path}`;
+const photos = [abs('/img/og-alice-lins.jpg'), abs('/img/alice-lins-1x1.jpg')];
+const phone = `+${site.contact.whatsapp.e164}`;
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': abs('/#website'),
+      url: abs('/'),
       name: `${site.name} — ${site.role}`,
+      inLanguage: 'pt-BR',
+      publisher: { '@id': abs('/#consultorio') },
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': abs('/#consultorio'),
+      name: `${site.name} — ${site.role}`,
+      url: abs('/'),
       description: site.description,
-      telephone: `+${site.contact.whatsapp.e164}`,
+      image: photos,
+      logo: abs('/img/logo-alice-lins.png'),
+      telephone: phone,
       email: site.contact.email,
       sameAs: [site.contact.instagram.url],
       address: { '@type': 'PostalAddress', addressLocality: 'Natal', addressRegion: 'RN', addressCountry: 'BR' },
       areaServed: { '@type': 'City', name: 'Natal' },
-      founder: {
-        '@type': 'Person',
-        name: site.fullName,
-        jobTitle: site.role,
-        identifier: site.crp,
-        alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidade Federal do Rio Grande do Norte (UFRN)' },
-      },
-    })}
-  />
+      contactPoint: { '@type': 'ContactPoint', contactType: 'agendamento', telephone: phone, email: site.contact.email, availableLanguage: 'pt-BR' },
+      founder: { '@id': abs('/#alice') },
+    },
+    {
+      '@type': 'Person',
+      '@id': abs('/#alice'),
+      name: site.fullName,
+      alternateName: site.name,
+      jobTitle: site.role,
+      identifier: site.crp,
+      url: abs('/'),
+      image: abs('/img/alice-lins-1x1.jpg'),
+      sameAs: [site.contact.instagram.url],
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidade Federal do Rio Grande do Norte (UFRN)' },
+      worksFor: { '@id': abs('/#consultorio') },
+    },
+  ],
+};
+---
+
+<BaseLayout>
+  <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
   <Hero />
   <TrustStrip />
   <About />
